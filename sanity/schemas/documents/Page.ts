@@ -20,7 +20,7 @@ export default {
     {
       title: 'Seo',
       name: 'seo',
-      type: 'seo-details',
+      type: 'seo_details',
     },
     {
       title: 'Theme',
@@ -29,8 +29,8 @@ export default {
       options: {
         list: [
           {title: 'Gradient', value: 'gradient'},
-          {title: 'dark', value: 'dark'},
-          {title: 'orange', value: 'orange'},
+          {title: 'Dark', value: 'dark'},
+          {title: 'Orange', value: 'orange'},
         ],
         layout: 'dropdown',
       },

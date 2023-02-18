@@ -1,7 +1,7 @@
 export const Seo = {
   type: 'object',
   title: 'Seo',
-  name: 'seo-details',
+  name: 'seo_details',
   options: {
     collapsible: true,
     collapsed: true,

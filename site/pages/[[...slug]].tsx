@@ -1,17 +1,34 @@
 import { GetStaticPathsContext, GetStaticPropsContext } from 'next'
 import RenderContainer from '_hoc/RenderContainer'
+import { allPages, page } from 'sanity/queries'
+import { getClient } from 'sanity/client'
 import { CMSPage } from '_types/cms'
 
 const Page = (props: CMSPage) => {
   return <RenderContainer {...props} />
 }
+export default Page
 
 export async function getStaticPaths({
   locales = [],
   defaultLocale = 'en',
 }: GetStaticPathsContext) {
+  const paths = await getClient(false)
+    .fetch(allPages)
+    .then((res) =>
+      res.map((path: CMSPage) => {
+        return {
+          params: {
+            slug: path.slug.current.split('/'),
+            id: path._id,
+          },
+        }
+      })
+    )
+    
+
   return {
-    paths: [],
+    paths,
     fallback: 'blocking',
   }
 }
@@ -21,9 +38,11 @@ export async function getStaticProps({
   params,
   preview,
 }: GetStaticPropsContext) {
+  const slug = (params?.slug as string[]) || ['/']
+  const props = await getClient(preview).fetch(page(slug)).then((res) => res)
+
   return {
-    props: {},
+    props,
   }
 }
 
-export default Page

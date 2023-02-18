@@ -6,12 +6,9 @@ export const allPages = `*[
 }`
 
 export const page = (slug: string[]) => `*[slug.current == '${slug.join('/')}'] | order(_updatedAt asc)[0] {
-  _type == 'page' => {
-    ${Page}
-  },
+  seo_details,
+  theme,
+  slug,
+  title,
   _type
 }`
-
-export const Page = `
-  seo_details
-`
