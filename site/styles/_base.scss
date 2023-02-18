@@ -25,7 +25,6 @@
 html,
 body {
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0B0C10;
   box-sizing: border-box;
   font-family: $font;
   font-weight: 300;
@@ -85,26 +84,8 @@ blockquote {
   margin-bottom: $spacing-x3;
 }
 
-ul {
-  list-style: disc;
-  padding-left: rem(40px);
-}
-
-ol {
-  list-style: decimal;
-  padding-left: rem(40px);
-}
-
 hr {
   margin: 0;
-}
-
-a {
-  color: $torquay;
-
-  &:hover {
-    color: $acqua;
-  }
 }
 
 h1,
@@ -133,102 +114,5 @@ h4,
 
 .text-body-2 {
   @include font-size($text-body-2);
-}
-
-.caption {
-  @include font-size($text-caption);
-}
-
-.tag {
-  @include font-size($text-tag);
-}
-
-// TO REFACTOR INTO A COMPONENT
-main {
-  position: relative;
-  display: block;
-  width: 100%;
-}
-
-header {
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-direction: row;
-  position: absolute;
-  margin: 0 auto;
-  display: flex;
-  width: 86%;
-  z-index: 3;
-  top: 25px;
-  left: 7%
-}
-
-footer {
-  justify-content: space-between;
-  font-family: 'Heebo', sans-serif;
-  color: $lightGrey;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  margin: 5% auto;
-  display: flex;
-  width: 86%;
-}
-
-footer div {
-  flex-direction: row;
-  min-width: 290px;
-  flex-wrap: wrap;
-  display: flex;
-  width: 20%;
-}
-
-footer a {
-  letter-spacing: 0.104375rem;
-  font-size: 1.2rem;
-  font-weight: 300;
-  color: inherit;
-}
-
-footer a:first-of-type {
-  text-decoration: underline;
-  text-transform: uppercase;
-  letter-spacing: 0.5rem;
-  margin-bottom: 15px;
-  width: 100%;
-}
-
-.footer address {
-  font-family: 'Heebo', sans-serif;
-  margin-bottom: 15px;
-  font-style: normal;
-  font-weight: 300;
-}
-
-footer p:last-of-type {
-  letter-spacing: 0.2rem;
-  margin-top: 15px;
-}
-
-.error {
-  display: flex;
-  height: 100vh;
-  width: 100%;
-}
-
-.error h1 {
-  font-family: 'Altero';
-  color: $torquay;
-  text-align: center;
-  margin: auto 0;
-  font-size: 5rem;
-  width: 100%;
-}
-
-@media only screen and (max-width: 850px) {
-  main { overflow: hidden; }
-  footer { flex-wrap: wrap; }
-  footer div { width: 100%; }
-  footer div:last-of-type { margin-top: 15px; }
 }
 

@@ -1,93 +1,45 @@
-$headlineFont: 'Altero';
-$font: 'Heebo';
+$headlineFont: "Altero";
+$font: "Heebo";
 
 $baseFontSize: 16px;
 
 $textH1: (
   null: (
-    48px,
-    60px,
+    37px,
+    53px,
   ),
   lg: (
-    56px,
-    68px,
+    85px,
+    60px,
   ),
 );
 
 $textH2: (
   null: (
     40px,
-    50px,
+    28px,
   ),
   lg: (
-    48px,
     60px,
+    42px,
   ),
 );
 
 $textH3: (
   null: (
-    32px,
-    42px,
-  ),
-  lg: (
-    40px,
     50px,
-  ),
-);
-
-$textH4: (
-  null: (
-    28px,
-    38px,
+    35px,
   ),
   lg: (
-    32px,
     42px,
-  ),
-);
-
-$textH5: (
-  null: (
-    24px,
-    34px,
-  ),
-  lg: (
-    28px,
-    38px,
-  ),
-);
-
-$textH6: (
-  null: (
-    22px,
-    32px,
-  ),
-  lg: (
-    24px,
-    34px,
-  ),
-);
-
-$textH7: (
-  null: (
-    20px,
-    30px,
-  ),
-  lg: (
-    22px,
-    32px,
+    29px,
   ),
 );
 
 $text-body-1: (
   null: (
-    16px,
-    26px,
-  ),
-  lg: (
-    18px,
-    28px,
+    20px,
+    14px,
   ),
 );
 
@@ -97,8 +49,8 @@ $text-body-2: (
     24px,
   ),
   lg: (
-    16px,
-    26px,
+    10px,
+    12px,
   ),
 );
 
@@ -124,35 +76,53 @@ $text-body-4: (
   ),
 );
 
-$text-caption: (
+$text-menu: (
   null: (
     12px,
-    18px,
+    14px,
+  ),
+);
+
+$text-nav: (
+  null: (
+    32px,
+    22px,
   ),
   lg: (
-    14px,
-    21px,
+    60px,
+    42px,
   ),
 );
 
 $text-tag: (
   null: (
-    12px,
-    14px,
+    16px,
+    22px,
   ),
   lg: (
-    14px,
-    18px,
+    22px,
+    24px,
   ),
 );
 
-$text-breadcrumb: (
+$text-number: (
   null: (
-    14px,
-    24px,
+    64px,
+    66px,
   ),
   lg: (
-    14px,
-    24px,
+    88px,
+    90px,
+  ),
+);
+
+$text-caption: (
+  null: (
+    8px,
+    12px,
+  ),
+  lg: (
+    12px,
+    18px,
   ),
 );
