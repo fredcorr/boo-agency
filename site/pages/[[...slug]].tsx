@@ -1,7 +1,9 @@
 import { GetStaticPathsContext, GetStaticPropsContext } from 'next'
+import RenderContainer from '_hoc/RenderContainer'
+import { CMSPage } from '_types/cms'
 
-export default function Page(props: any) {
-  return <div></div>
+const Page = (props: CMSPage) => {
+  return <RenderContainer {...props} />
 }
 
 export async function getStaticPaths({
@@ -19,8 +21,9 @@ export async function getStaticProps({
   params,
   preview,
 }: GetStaticPropsContext) {
-
   return {
     props: {},
   }
 }
+
+export default Page
