@@ -14,8 +14,7 @@ const HomePagehero = ({
 }: HomePageHeroType) => {
   const diaplyNumber = (digit: number) => (digit < 10 ? '0' + digit : digit)
   return (
-    <ComponentLayout innerClass={styles.HomePageHero}>
-      <span className={styles.keyline}></span>
+    <ComponentLayout innerClass={styles.HomePageHero} addKeyline>
       <div className={styles.text}>
         <Heading level={1}>{headline}</Heading>
         <p className={styles.subHeadline}>{subHeadline}</p>

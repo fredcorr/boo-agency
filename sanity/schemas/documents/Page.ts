@@ -45,7 +45,8 @@ export default {
       name: 'components',
       type: 'array',
       of: [
-        {type: 'HomePageHero'}
+        {type: 'HomePageHero'},
+        {type: 'QuickLinks'}
       ],
     },
   ],

@@ -1,12 +1,15 @@
+import styles from './ComponentLayout.module.scss'
 import { ReactNode } from 'react'
 
 export interface ComponentLayoutProps {
   containerClass?: string
+  addKeyline?: boolean,
   innerClass?: string
   children: ReactNode
 }
 
 const ComponentLayout = ({
+  addKeyline = false,
   containerClass,
   innerClass,
   children,
@@ -20,6 +23,7 @@ const ComponentLayout = ({
       <div
         className={`componentInner ${innerClass ? innerClass : ''}`}
       >
+        {addKeyline && <span className={styles.keyline}></span>}
         {children}
       </div>
     </section>

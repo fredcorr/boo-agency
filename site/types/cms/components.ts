@@ -1,7 +1,9 @@
-import { Image, RichText } from "./base-schemas"
+import { Image, RichText } from './base-schemas'
+import { CMSPage } from './base'
 
 export enum ComponentsTypeName {
-  HOME_PAGE_HERO = 'HomePageHero'
+  HOME_PAGE_HERO = 'HomePageHero',
+  QUICK_LINKS = 'QuickLinks',
 }
 
 export interface ComponentBase {
@@ -11,10 +13,16 @@ export interface ComponentBase {
 export interface HomePageHeroType extends ComponentBase {
   _type: ComponentsTypeName.HOME_PAGE_HERO
   subHeadline?: string
-  headline?: string 
+  headline?: string
   number?: number
   body?: RichText
   video?: Image
 }
 
-export type Components = HomePageHeroType
+export interface QuickLinksType extends ComponentBase {
+  _type: ComponentsTypeName.QUICK_LINKS
+  headline?: string
+  links?: CMSPage[]
+}
+
+export type Components = HomePageHeroType | QuickLinksType

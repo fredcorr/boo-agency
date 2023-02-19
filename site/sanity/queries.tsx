@@ -14,9 +14,24 @@ export const navPages = `*[
   slug
 }`
 
+
+export const HomePageHeroQuery = `
+  _type == 'HomepageHero' => {
+    "video": video.asset->{ url },
+  },
+`
+
+export const QuickLinksQuery = `
+  _type == 'QuickLinks' => {
+    links[]->{title, slug},
+  },
+`
+
 export const page = (slug: string[]) => `*[slug.current == '${slug.join('/')}'] | order(_updatedAt asc)[0] {
   components[]{
-    ...
+    ...,
+    ${HomePageHeroQuery}
+    ${QuickLinksQuery}
   },
   theme,
   slug,

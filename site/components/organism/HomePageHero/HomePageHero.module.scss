@@ -8,13 +8,6 @@
   }
 }
 
-.keyline {
-  border-radius: rem(52px) rem(52px) 0 0;
-  border: 1px solid $white;
-  grid-column: 1 / -1;
-  grid-row: 1 / -1;
-}
-
 .text {
   grid-column: 2 / -2;
   grid-row: 2 / 3;
