@@ -1,3 +1,4 @@
+import GradientBackground from '_atoms/GradientBackground/GradientBackground'
 import Header from '_molecules/Header/Header'
 import styles from './Layout.module.scss'
 import { CMSPageTheme } from '_types/cms'
@@ -13,6 +14,7 @@ const Layout = ({ theme, children }: LayoutProps) => {
     <div className={styles.layout} data-theme={theme}>
       <Header theme={theme} />
       <main className={styles.main}>{children}</main>
+      {theme === CMSPageTheme.GRADIENT && <GradientBackground /> }
     </div>
   )
 }
