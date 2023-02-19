@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import styles from './Menu.module.scss'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { useNavPages } from 'contexts/nav-pages'
 
 export interface MenuProps {
   isOpen: boolean
@@ -10,12 +11,8 @@ export interface MenuProps {
 
 const Menu = ({ isOpen }: MenuProps) => {
   const { asPath } = useRouter()
+  const pages = useNavPages()
 
-  const pages = [
-    { url: '/why-boo', name: 'Why Boo' },
-    { url: '/what-we-offer', name: 'What We Offer' },
-    { url: '/contact', name: 'Contact' },
-  ]
   return (
     <>
       <AnimatePresence>
@@ -29,17 +26,17 @@ const Menu = ({ isOpen }: MenuProps) => {
             exit="out"
           >
             <div className={styles.menuInner}>
-              {pages.map(({ url, name }, i) => (
+              {pages.map(({ slug, title }, i) => (
                 <motion.div
                   variants={menuAnim}
                   key={i}
                 >
                   <Link
-                    data-active={asPath === url}
+                    data-active={asPath === slug.current}
                     className={styles.menuItem}
-                    href={url}
+                    href={slug.current}
                   >
-                    {name}
+                    {title}
                   </Link>
                 </motion.div>
               ))}
