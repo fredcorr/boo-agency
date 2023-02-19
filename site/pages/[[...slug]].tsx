@@ -1,6 +1,6 @@
 import { GetStaticPathsContext, GetStaticPropsContext } from 'next'
+import { allPages, page, navPages } from 'sanity/queries'
 import RenderContainer from '_hoc/RenderContainer'
-import { allPages, page } from 'sanity/queries'
 import { getClient } from 'sanity/client'
 import { CMSPage } from '_types/cms'
 
@@ -25,7 +25,6 @@ export async function getStaticPaths({
         }
       })
     )
-    
 
   return {
     paths,
@@ -39,10 +38,13 @@ export async function getStaticProps({
   preview,
 }: GetStaticPropsContext) {
   const slug = (params?.slug as string[]) || ['/']
-  const props = await getClient(preview).fetch(page(slug)).then((res) => res)
+  const cmsPages = await getClient(false).fetch(navPages)
+  const props = await getClient(preview).fetch(page(slug))
 
   return {
-    props,
+    props: {
+      ...props,
+      navPages: cmsPages
+    },
   }
 }
-

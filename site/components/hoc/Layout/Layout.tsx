@@ -1,12 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import GradientBackground from '_atoms/GradientBackground/GradientBackground'
+import Header from '_molecules/Header/Header'
 import styles from './Layout.module.scss'
+import { CMSPageTheme } from '_types/cms'
+import React, { ReactNode } from 'react'
 
-const Layout = (props: any) => {
+export interface LayoutProps {
+ theme: CMSPageTheme
+ children: ReactNode
+}
 
+const Layout = ({ theme, children }: LayoutProps) => {
   return (
-    <>
-      <main className={styles.main}>{props.children}</main>
-    </>
+    <div className={styles.layout} data-theme={theme}>
+      <Header theme={theme} />
+      <main className={styles.main}>{children}</main>
+      {theme === CMSPageTheme.GRADIENT && <GradientBackground /> }
+    </div>
   )
 }
 

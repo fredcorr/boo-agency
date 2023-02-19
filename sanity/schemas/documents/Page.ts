@@ -23,6 +23,11 @@ export default {
       type: 'seo_details',
     },
     {
+      title: 'Include in nav',
+      name: 'includeNav',
+      type: 'boolean',
+    },
+    {
       title: 'Theme',
       name: 'theme',
       type: 'string',
