@@ -1,4 +1,4 @@
+import { Image, Seo, HomePageHero } from './objects'
 import Page from './documents/Page'
-import {ContentBuilder, Image, Seo } from './objects'
 
-export const schemaTypes = [ContentBuilder, Page, Image, Seo]
+export const schemaTypes = [ Page, Image, Seo, HomePageHero]

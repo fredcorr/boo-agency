@@ -15,9 +15,12 @@ export const navPages = `*[
 }`
 
 export const page = (slug: string[]) => `*[slug.current == '${slug.join('/')}'] | order(_updatedAt asc)[0] {
-  seo_details,
+  components[]{
+    ...
+  },
   theme,
   slug,
   title,
-  _type
+  _type,
+  seo
 }`

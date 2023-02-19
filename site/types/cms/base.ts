@@ -1,11 +1,15 @@
+import { Image } from "./base-schemas"
+import { Components } from "./components"
+
 export interface CMSPage {
+  components?: Components[]
+  theme: CMSPageTheme
   _createdAt: string
   _updatedAt: string
-  seo_details: Seo
-  theme: CMSPageTheme
+  seo?: Seo
+  title: string
   _type: string
   _id: string
-  title: string
   slug: {
     current: string
   };
@@ -18,7 +22,9 @@ export enum CMSPageTheme {
 }
 
 export interface Seo {
-  description: string
-  keywords?: string[]
   hideFromSearchEngine?: boolean
+  description?: string
+  keywords?: string[]
+  featureImage?: Image
+  title?: string
 }

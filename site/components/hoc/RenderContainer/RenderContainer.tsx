@@ -4,7 +4,7 @@ import { CMSPage } from "_types/cms"
 const RenderContainer = (data: CMSPage) => {
   switch (data._type) {
     default:
-      return <StandardPage {...data}/>
+      return <StandardPage {...data} key={data._id}/>
   }
 }
 

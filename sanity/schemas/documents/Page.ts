@@ -20,7 +20,7 @@ export default {
     {
       title: 'Seo',
       name: 'seo',
-      type: 'seo_details',
+      type: 'seo',
     },
     {
       title: 'Include in nav',
@@ -42,8 +42,11 @@ export default {
     },
     {
       title: 'Content',
-      name: 'content',
-      type: 'content',
+      name: 'components',
+      type: 'array',
+      of: [
+        {type: 'HomePageHero'}
+      ],
     },
   ],
   preview: {

@@ -18,4 +18,5 @@
 
 .main {
   @include container-max-width;
+  z-index: 60;
 }
