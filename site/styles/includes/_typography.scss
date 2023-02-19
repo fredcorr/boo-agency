@@ -4,12 +4,16 @@ $baseFontSize: 16px;
 
 $textH1: (
   null: (
-    37px,
-    53px,
+    90px,
+    70px,
   ),
-  lg: (
-    85px,
-    60px,
+  md: (
+    120px,
+    100px,
+  ),
+  xl: (
+    170px,
+    140px,
   ),
 );
 
@@ -37,19 +41,27 @@ $textH3: (
 
 $text-body-1: (
   null: (
-    20px,
-    14px,
+    30px,
+    34px,
+  ),
+  md: (
+    40px,
+    40px,
+  ),
+  lg: (
+    60px,
+    60px,
   ),
 );
 
 $text-body-2: (
   null: (
-    14px,
+    18px,
     24px,
   ),
   lg: (
-    10px,
-    12px,
+    20px,
+    24px,
   ),
 );
 
@@ -87,11 +99,11 @@ $text-nav: (
     54px,
     54px,
   ),
-  md: (
+  lg: (
     84px,
     84px,
   ),
-  lg: (
+  xl: (
     120px,
     120px,
   ),
@@ -110,12 +122,16 @@ $text-tag: (
 
 $text-number: (
   null: (
-    64px,
+    96px,
     66px,
   ),
+  md: (
+    170px,
+    150px,
+  ),
   lg: (
-    88px,
-    90px,
+    274px,
+    190px,
   ),
 );
 

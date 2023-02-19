@@ -1,6 +1,6 @@
 import { GetStaticPathsContext, GetStaticPropsContext } from 'next'
+import RenderContainer from '_hoc/RenderContainer/RenderContainer'
 import { allPages, page, navPages } from 'sanity/queries'
-import RenderContainer from '_hoc/RenderContainer'
 import { getClient } from 'sanity/client'
 import { CMSPage } from '_types/cms'
 

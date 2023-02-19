@@ -1,0 +1,109 @@
+@import '../../../styles/includes/';
+
+.HomePageHero {
+  grid-template-rows: $spacing-x4 auto $spacing-x3 auto $spacing-x3 auto $spacing-x3 auto $spacing-x4;
+
+  @include media-breakpoint-up(md) {
+    grid-template-rows: rem(100px) rem(135px) auto auto $spacing-x8 auto $spacing-x8;
+  }
+}
+
+.keyline {
+  border-radius: rem(52px) rem(52px) 0 0;
+  border: 1px solid $white;
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+}
+
+.text {
+  grid-column: 2 / -2;
+  grid-row: 2 / 3;
+  width: 100%;
+  color: $white;
+  z-index: 1;
+
+  @include media-breakpoint-up(md) {
+    grid-column: 2 / 8;
+    grid-row: 2 / 4;
+  }
+}
+
+.subHeadline {
+  @include font-size($text-body-1);
+  margin-bottom: 0;
+}
+
+.number {
+  @include font-size($text-number);
+  grid-column: 2 / -2;
+  margin-bottom: 0;
+  font-weight: 200;
+  grid-row: 5 / 7;
+  color: $white;
+  z-index: 1;
+
+  @include media-breakpoint-up(md) {
+    justify-self: flex-end;
+    grid-column: 8 / -2;
+    grid-row: 2 / 5;
+  }
+}
+
+.video {
+  background-color: $black;
+  min-height: rem(300px);
+  grid-column: 2 / -2;
+  grid-row: 4 / 6;
+  display: flex;
+  z-index: 0;
+
+  @include media-breakpoint-up(md) {
+    transform: translateX($spacing-x2);
+    min-height: rem(490px);
+    grid-column: 4 / -2;
+    grid-row: 3 / 5;
+  }
+
+  @include media-breakpoint-up(lg) {
+    grid-column: 5 / -2;
+  }
+}
+
+.playButton {
+  background-color: transparent;
+  margin-bottom: $spacing-x3;
+  margin-right: $spacing-x3;
+  position: relative;
+  margin-left: auto;
+  height: rem(20px);
+  width: rem(20px);
+  margin-top: auto;
+  cursor: pointer;
+  outline: none;
+  border: none;
+
+  @include media-breakpoint-up(md) {
+    height: rem(36px);
+    width: rem(36px);
+  }
+}
+
+.body {
+  @include font-size($text-body-2);
+  grid-column: 2 / -2;
+  grid-row: 8 / 9;
+  color: $white;
+
+  & >*:last-child {
+    margin-bottom: 0;
+  }
+
+  @include media-breakpoint-up(md) {
+    grid-column: 2 / 8;
+    grid-row: 6 / 7;
+  }
+
+  @include media-breakpoint-up(lg) {
+    grid-column: 2 / 6;
+  }
+}

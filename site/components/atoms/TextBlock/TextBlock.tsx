@@ -1,11 +1,11 @@
-import BlockContent, { BlockContentProps } from '@sanity/block-content-to-react'
+import { PortableText, PortableTextProps } from '@portabletext/react'
 import React from 'react'
 
-export interface TextBlockProps extends BlockContentProps {
+export interface TextBlockProps extends PortableTextProps {
   isWrapped?: boolean
 }
 
-const serializers = {
+const components = {
   types: {
     code: (props: any) => (
       <pre data-language={props.node.language}>
@@ -15,11 +15,10 @@ const serializers = {
   },
 }
 
-const TextBlock = ({ blocks, isWrapped = true }: TextBlockProps) => (
-  <BlockContent
-    renderContainerOnSingleChild={isWrapped}
-    serializers={serializers}
-    blocks={blocks}
+const TextBlock = ({ isWrapped = true, ...props }: TextBlockProps) => (
+  <PortableText
+    components={components}
+    {...props}
   />
 )
 

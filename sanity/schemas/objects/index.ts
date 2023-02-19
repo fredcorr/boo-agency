@@ -1,3 +1,3 @@
-export * from './ContentBuilder'
-export * from './Image'
-export * from './Seo'
+export * from './base/Image'
+export * from './base/Seo'
+export * from './components'
