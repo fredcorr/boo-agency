@@ -12,7 +12,7 @@
 
 
 .menuInner {
-  height: calc(100% - $header-height-lg);
+  height: calc(100% - $header-height);
   @include container-max-width;
   @include site-grid-padding;
   justify-content: center;
@@ -21,6 +21,10 @@
   margin: 0 auto;
   display: flex;
   width: 100%;
+
+  @include media-breakpoint-up(md) {
+    min-height: $header-height-lg;
+  }
 }
 
 .menuItem {

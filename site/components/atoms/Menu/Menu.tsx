@@ -1,3 +1,4 @@
+import { menuAnim, transition } from '_utils/animations'
 import { AnimatePresence, motion } from 'framer-motion'
 import styles from './Menu.module.scss'
 import { useRouter } from 'next/router'
@@ -19,17 +20,28 @@ const Menu = ({ isOpen }: MenuProps) => {
     <>
       <AnimatePresence>
         {isOpen && (
-          <motion.div className={styles.menu}>
+          <motion.div
+            className={styles.menu}
+            transition={transition}
+            variants={menuAnim}
+            initial="out"
+            animate="in"
+            exit="out"
+          >
             <div className={styles.menuInner}>
               {pages.map(({ url, name }, i) => (
-                <Link
-                  className={styles.menuItem}
-                  data-active={asPath === url}
-                  href={url}
+                <motion.div
+                  variants={menuAnim}
                   key={i}
                 >
-                  {name}
-                </Link>
+                  <Link
+                    data-active={asPath === url}
+                    className={styles.menuItem}
+                    href={url}
+                  >
+                    {name}
+                  </Link>
+                </motion.div>
               ))}
             </div>
           </motion.div>

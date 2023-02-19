@@ -26,9 +26,8 @@ const Header = ({ theme }: HeaderProps) => {
       <Link href="/" className={styles.logo}>
         <Image
           src={`/logo-${logoColor(navState)}.svg`}
-          height={46}
-          width={65}
           alt="logo"
+          fill
         />
       </Link>
       <nav className={styles.nav} data-is-open={navState} data-theme={theme}>
