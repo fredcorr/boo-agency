@@ -96,32 +96,16 @@ h3,
 
 
 .componentLayout {
-  margin: 0 auto $spacing-x5 auto;
   flex-direction: column;
   align-items: center;
   position: relative;
+  margin: 0 auto;
   display: flex;
-
-  &[data-remove-bottom-margin='true'] {
-    margin-bottom: 0;
-  }
 }
 
 .componentInner {
   @include site-grid;
   margin: 0 auto;
   width: 100%;
-
-  &[data-is-hero='true'] {
-    @include site-grid(false);
-  }
-
-  &[data-is-landing-hero='true'] {
-    margin-bottom: rem(114px);
-  }
-
-  &[data-remove-grid-padding='true'] {
-    padding: 0;
-  }
 }
 
