@@ -1,12 +1,20 @@
 export interface CMSPage {
-  _createdAt: string;
-  _updatedAt: string;
-  _type: string;
-  _id: string;
-  title: string;
+  _createdAt: string
+  _updatedAt: string
+  seo_details: Seo
+  theme: CMSPageTheme
+  _type: string
+  _id: string
+  title: string
   slug: {
-    current: string;
+    current: string
   };
+}
+
+export enum CMSPageTheme {
+  DARK = 'dark',
+  ORANGE = 'orange',
+  GRADIENT = 'gradient',
 }
 
 export interface Seo {

@@ -1,25 +1,7 @@
 @font-face {
-  font-family: 'Altero';
-  // src: url('/fonts/Altero-Regular.woff');
+  font-family: "halyard-display", sans-serif;
+  font-style: normal;
   font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Heebo';
-  // src: url('/fonts/Heebo-Light.woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Heebo';
-  // src: url('/fonts/Heebo-Medium.woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
 }
 
 html,
@@ -51,13 +33,14 @@ body {
 h1,
 h2,
 h3 {
-  font-family: $headlineFont;
+  font-family: $font;
   font-weight: 500;
 }
 
 h4,
 h5,
 h6,
+a,
 .text-body-1,
 .text-body-2,
 .text-body-3,

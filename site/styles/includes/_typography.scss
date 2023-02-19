@@ -1,5 +1,4 @@
-$headlineFont: "Altero";
-$font: "Heebo";
+$font: "halyard-display";
 
 $baseFontSize: 16px;
 
@@ -78,8 +77,8 @@ $text-body-4: (
 
 $text-menu: (
   null: (
-    12px,
-    14px,
+    22px,
+    22px,
   ),
 );
 
@@ -89,8 +88,8 @@ $text-nav: (
     22px,
   ),
   lg: (
-    60px,
-    42px,
+    120px,
+    120px,
   ),
 );
 

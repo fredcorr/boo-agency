@@ -1,9 +1,9 @@
 import Layout from '_hoc/Layout/Layout'
 import { CMSPage } from '_types/cms'
 
-export const StandardPage = ({}: CMSPage) => {
+export const StandardPage = ({ theme }: CMSPage) => {
   return (
-    <Layout>
+    <Layout theme={theme}>
       <></>
     </Layout>
   )
