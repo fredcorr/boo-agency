@@ -46,7 +46,8 @@ export default {
       type: 'array',
       of: [
         {type: 'HomePageHero'},
-        {type: 'QuickLinks'}
+        {type: 'HeroContact'},
+        {type: 'QuickLinks'},
       ],
     },
   ],

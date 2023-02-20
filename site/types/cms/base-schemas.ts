@@ -1,3 +1,5 @@
+import { PortableTextBlock } from "@sanity/types"
+
 export interface Image {
 	_id: string
 	_type: string
@@ -35,4 +37,4 @@ export interface Link {
   type: string
 }
 
-export type RichText = any[] | any
+export type RichText = PortableTextBlock

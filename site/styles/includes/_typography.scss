@@ -30,12 +30,12 @@ $textH2: (
 
 $textH3: (
   null: (
-    50px,
-    35px,
+    80px,
+    66px,
   ),
-  lg: (
-    42px,
-    29px,
+  md: (
+    120px,
+    100px,
   ),
 );
 
@@ -67,12 +67,12 @@ $text-body-2: (
 
 $text-body-3: (
   null: (
-    12px,
-    22px,
+    26px,
+    36px,
   ),
   lg: (
-    14px,
-    24px,
+    30px,
+    40px,
   ),
 );
 
@@ -147,5 +147,16 @@ $text-caption: (
   lg: (
     12px,
     18px,
+  ),
+);
+
+$text-contact-button: (
+  null: (
+    64px,
+    50px,
+  ),
+  md: (
+    100px,
+    100px,
   ),
 );
