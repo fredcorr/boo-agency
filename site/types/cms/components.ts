@@ -5,6 +5,7 @@ export enum ComponentsTypeName {
   HOME_PAGE_HERO = 'HomePageHero',
   HERO_CONTACT = 'HeroContact',
   QUICK_LINKS = 'QuickLinks',
+  SERVICES = 'Services',
   FOOTER = 'Footer',
 }
 
@@ -37,4 +38,19 @@ export interface HeroContactType extends ComponentBase {
   email?: string
 }
 
-export type Components = HomePageHeroType | QuickLinksType | HeroContactType
+export interface ServicesCardType extends ComponentBase {
+  title?: string
+  body?: RichText
+}
+
+export interface ServicesType extends ComponentBase {
+  _type: ComponentsTypeName.SERVICES
+  headline?: string
+  cards?: ServicesCardType[]
+}
+
+export type Components =
+  | HomePageHeroType
+  | QuickLinksType
+  | HeroContactType
+  | ServicesType
