@@ -1,3 +1,5 @@
 export * from './HomePagerHero'
+export * from './ServicesCard'
 export * from './HeroContact'
 export * from './QuickLinks'
+export * from './Services'

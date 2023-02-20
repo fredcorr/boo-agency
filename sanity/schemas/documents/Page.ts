@@ -48,6 +48,7 @@ export default {
         {type: 'HomePageHero'},
         {type: 'HeroContact'},
         {type: 'QuickLinks'},
+        {type: 'Services'},
       ],
     },
   ],

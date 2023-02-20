@@ -1,6 +1,6 @@
-export const QuickLinks = {
+export const Services = {
   title: 'Services',
-  name: 'services',
+  name: 'Services',
   type: 'object',
   fields: [
     {
@@ -9,10 +9,10 @@ export const QuickLinks = {
       type: 'string',
     },
     {
-      title: 'Links',
-      name: 'links',
+      title: 'Cards',
+      name: 'cards',
       type: 'array',
-      of: [],
+      of: [{type: 'servicesCard'}],
     },
   ],
 }
