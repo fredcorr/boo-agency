@@ -17,6 +17,14 @@
 }
 
 .main {
+  min-height: calc(100vh - $header-height);
   @include container-max-width;
+  flex-direction: column;
+  height: max-content;
+  display: flex;
   z-index: 60;
+
+  @include media-breakpoint-up(md) {
+     min-height: calc(100vh - $header-height-lg);
+  }
 }
