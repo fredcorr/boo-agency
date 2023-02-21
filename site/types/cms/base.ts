@@ -1,12 +1,13 @@
-import { Image } from "./base-schemas"
 import { Components } from "./components"
+import { Image } from "./base-schemas"
 
 export interface CMSPage {
   components?: Components[]
   theme: CMSPageTheme
   _createdAt: string
   _updatedAt: string
-  seo?: Seo
+  footer: FooterType
+  seo?: SeoType
   title: string
   _type: string
   _id: string
@@ -21,7 +22,18 @@ export enum CMSPageTheme {
   GRADIENT = 'gradient',
 }
 
-export interface Seo {
+export enum FooterTheme {
+  LIGHT = 'light',
+  DARK = 'dark',
+}
+
+export interface FooterType {
+  footerTheme?: FooterTheme
+  includeFooter?: boolean
+  footerCopy?: string
+}
+
+export interface SeoType {
   hideFromSearchEngine?: boolean
   description?: string
   keywords?: string[]

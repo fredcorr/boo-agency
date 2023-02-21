@@ -21,6 +21,10 @@
   }
 }
 
+.headline {
+  @include font-size($textH1);
+}
+
 .subHeadline {
   @include font-size($text-body-1);
   margin-bottom: 0;

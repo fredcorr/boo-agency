@@ -27,6 +27,12 @@ export default {
       name: 'includeNav',
       type: 'boolean',
     },
+
+    {
+      title: 'Footer',
+      name: 'footer',
+      type: 'footer',
+    },
     {
       title: 'Theme',
       name: 'theme',
@@ -48,6 +54,7 @@ export default {
         {type: 'HomePageHero'},
         {type: 'HeroContact'},
         {type: 'QuickLinks'},
+        {type: 'Services'},
       ],
     },
   ],
