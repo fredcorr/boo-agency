@@ -1,4 +1,23 @@
-import {Image, Seo, HomePageHero, QuickLinks, HeroContact, ServiceCard, Services} from './objects'
 import Page from './documents/Page'
+import {
+  HomePageHero,
+  HeroContact,
+  ServiceCard,
+  QuickLinks,
+  Services,
+  Footer,
+  Image,
+  Seo,
+} from './objects'
 
-export const schemaTypes = [Page, Image, Seo, HomePageHero, QuickLinks, HeroContact, ServiceCard, Services]
+export const schemaTypes = [
+  HomePageHero,
+  HeroContact,
+  ServiceCard,
+  QuickLinks,
+  Services,
+  Footer,
+  Image,
+  Page,
+  Seo,
+]

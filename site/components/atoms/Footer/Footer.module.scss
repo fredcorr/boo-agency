@@ -1,0 +1,65 @@
+@import "../../../styles/includes/";
+
+.footer {
+  @include container-max-width;
+  padding-top: $spacing-x4;
+  @include site-grid();
+  position: relative;
+  width: 100%;
+  z-index: 60;
+}
+
+.footerCopy {
+  border-radius: rem(26px) rem(26px) 0 0;
+  @include font-size($text-caption);
+  padding: $spacing-x1 $spacing-x4;
+  background-color: $white;
+  grid-column: 1 / -1;
+  text-align: right;
+  margin-bottom: 0;
+  color: $black;
+
+  [data-theme='light'] & {
+    background-color: $white;
+    color: $black;
+
+    &::after,  &::before {
+      background-color: $white;
+      position: absolute;
+      height: rem(52px);
+      display: block;
+      content: '';
+      width: 1px;
+      top: 0;
+    }
+  
+    &::before {
+      left: $grid-padding-sm;
+    
+      @include media-breakpoint-up(md) {
+        left: $grid-padding-md;
+      }
+    
+      @include media-breakpoint-up(lg) {
+        left: $grid-padding-lg;
+      }
+    }
+  
+    &::after {
+      right: $grid-padding-sm;
+    
+      @include media-breakpoint-up(md) {
+        right: $grid-padding-md;
+      }
+    
+      @include media-breakpoint-up(lg) {
+        right: $grid-padding-lg;
+      }
+    }
+  } 
+
+  @include media-breakpoint-up(md) {
+    background-color: $black;
+    color: $white;
+  }
+}

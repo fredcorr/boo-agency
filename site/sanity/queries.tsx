@@ -33,6 +33,7 @@ export const page = (slug: string[]) => `*[slug.current == '${slug.join('/')}'] 
     ${HomePageHeroQuery}
     ${QuickLinksQuery}
   },
+  footer,
   theme,
   slug,
   title,
