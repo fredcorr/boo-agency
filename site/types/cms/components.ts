@@ -6,7 +6,13 @@ export enum ComponentsTypeName {
   HERO_CONTACT = 'HeroContact',
   QUICK_LINKS = 'QuickLinks',
   SERVICES = 'Services',
+  SLIDER = 'Slider',
   FOOTER = 'Footer',
+}
+
+export enum PositionNextButton {
+  RIGHT = 'right',
+  LEFT = 'left'
 }
 
 export interface ComponentBase {
@@ -38,7 +44,7 @@ export interface HeroContactType extends ComponentBase {
   email?: string
 }
 
-export interface ServicesCardType extends ComponentBase {
+export interface ServicesCardType {
   title: string
   body: RichText
 }
@@ -49,8 +55,29 @@ export interface ServicesType extends ComponentBase {
   cards?: ServicesCardType[]
 }
 
+export interface StatType {
+  statLabel?: string
+  statValue?: string
+}
+
+export interface SlidesType {
+  slideLabel?: string
+  isDefaultOpen?: boolean
+  slideTitle?: string
+  positionNextButton?: PositionNextButton,
+  slideBody?: RichText
+  slideLogos?: Image[]
+  slideStats?: StatType[]
+}
+
+export interface SliderType extends ComponentBase {
+  _type: ComponentsTypeName.SLIDER
+  slides: SlidesType[]
+}
+
 export type Components =
   | HomePageHeroType
   | QuickLinksType
   | HeroContactType
   | ServicesType
+  | SliderType

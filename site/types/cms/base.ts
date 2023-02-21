@@ -35,8 +35,8 @@ export interface FooterType {
 
 export interface SeoType {
   hideFromSearchEngine?: boolean
+  featureImage?: Image
   description?: string
   keywords?: string[]
-  featureImage?: Image
   title?: string
 }

@@ -27,11 +27,27 @@ export const QuickLinksQuery = `
   },
 `
 
+export const SliderQuery = `
+  _type == 'Slider' => {
+    slides[]{
+      ...,
+      slideLogos[]{
+        ...,
+        asset->{
+          url,
+          metadata
+        }
+      }
+    },
+  },
+`
+
 export const page = (slug: string[]) => `*[slug.current == '${slug.join('/')}'] | order(_updatedAt asc)[0] {
   components[]{
     ...,
     ${HomePageHeroQuery}
     ${QuickLinksQuery}
+    ${SliderQuery}
   },
   footer,
   theme,
