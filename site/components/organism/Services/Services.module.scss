@@ -1,1 +1,51 @@
 @import "../../../styles/includes/";
+
+.services {
+  grid-template-rows: repeat(2, auto);
+  width: 100%;
+}
+
+.servicesHeadline {
+  @include font-size($textH4);
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  color: white;
+  width: 100%;
+}
+
+.servicesCards {
+  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  grid-column: 1 / -1;
+  gap: $spacing-x2;
+  grid-row: 2 / 3;
+  color: white;
+  display: grid;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+.servicesFooter {
+  justify-content: space-between;
+  border-top: 1px solid $white;
+  margin-top: $spacing-x8;
+  padding: $spacing-x2 0;
+  flex-direction: row;
+  grid-column: 2 / -2;
+  align-self: start;
+  display: flex;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}
+
+.servicesLinks {
+  @include font-size($text-menu);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $white;
+}

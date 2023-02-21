@@ -39,8 +39,8 @@ export interface HeroContactType extends ComponentBase {
 }
 
 export interface ServicesCardType extends ComponentBase {
-  title?: string
-  body?: RichText
+  title: string
+  body: RichText
 }
 
 export interface ServicesType extends ComponentBase {

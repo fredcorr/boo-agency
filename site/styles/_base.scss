@@ -71,17 +71,14 @@ hr {
   margin: 0;
 }
 
-h1,
 .h1 {
   @include font-size($textH1);
 }
 
-h2,
 .h2 {
   @include font-size($textH2);
 }
 
-h3,
 .h3 {
   @include font-size($textH3);
 }
@@ -101,6 +98,7 @@ h3,
   position: relative;
   margin: 0 auto;
   display: flex;
+  width: 100%;
 }
 
 .componentInner {

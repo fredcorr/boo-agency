@@ -24,13 +24,13 @@ const DynamicServices = dynamic(
 const RenderComponet = (data: Components) => {
   switch (data._type) {
     case ComponentsTypeName.HERO_CONTACT:
-      return <DynamicHeroContact {...data} />
+      return <DynamicHeroContact {...data} key={data._key}/>
     case ComponentsTypeName.HOME_PAGE_HERO:
-      return <DynamicHomePagehero {...data} />
+      return <DynamicHomePagehero {...data} key={data._key} />
     case ComponentsTypeName.QUICK_LINKS:
-      return <DynamicQuickLinks {...data} />
+      return <DynamicQuickLinks {...data} key={data._key} />
     case ComponentsTypeName.SERVICES:
-      return <DynamicServices {...data} />
+      return <DynamicServices {...data} key={data._key} />
     default:
       return null
   }

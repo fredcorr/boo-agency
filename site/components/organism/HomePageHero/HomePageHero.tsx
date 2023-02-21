@@ -16,7 +16,7 @@ const HomePagehero = ({
   return (
     <ComponentLayout innerClass={styles.HomePageHero} addKeyline>
       <div className={styles.text}>
-        <Heading level={1}>{headline}</Heading>
+        <Heading level={1} className={styles.headline}>{headline}</Heading>
         <p className={styles.subHeadline}>{subHeadline}</p>
       </div>
       {number && <p className={styles.number}>{diaplyNumber(number)}</p>}
