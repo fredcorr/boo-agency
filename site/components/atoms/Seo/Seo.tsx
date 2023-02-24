@@ -20,7 +20,7 @@ const Seo = ({ description, keywords, featureImage, title }: SeoType) => {
       )}
       <meta property="og:title" content={title} />
       {featureImage && (
-        <meta property="og:image" content={featureImage.url} />
+        <meta property="og:image" content={featureImage.asset.url} />
       )}
 
       <meta property="og:url" content={process.env.CANONICAL_URL + asPath} />
@@ -30,7 +30,7 @@ const Seo = ({ description, keywords, featureImage, title }: SeoType) => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       {featureImage && (
-        <meta name="twitter:image" content={featureImage.url} />
+        <meta name="twitter:image" content={featureImage.asset.url} />
       )}
     </Head>
   )

@@ -1,0 +1,103 @@
+@import "../../../styles/includes/";
+
+.slide {
+  box-shadow: inset 0px 0px 0px 2px $white;
+  justify-content: center;
+  border-radius: rem(52px);
+  flex-direction: column;
+  padding: $spacing-x7 0;
+  min-height: rem(676px);
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  color: $white;
+  width: 15%;
+
+  &[data-is-open="true"] {
+    justify-content: flex-start;
+    background-color: red;
+    align-items: start;
+    box-shadow: none;
+    width: 66.6%;
+  }
+}
+
+.slideTitle {
+  @include font-size($text-slide);
+  margin-right: $spacing-x10;
+  margin-left: rem(100px);
+  width: 100%;
+}
+
+.slideBody {
+  @include font-size($text-body-2);
+  margin-left: rem(100px);
+  margin-top: $spacing-x4;
+  max-width: rem(481px);
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.slideButton {
+  padding: $spacing-x1 $spacing-x2 $spacing-x1 $spacing-x10;
+  background-color: transparent;
+  justify-content: flex-end;
+  border-radius: rem(26px);
+  border: solid 2px $white;
+  min-width: rem(174px);
+  flex-direction: row;
+  display: flex;
+
+  svg {
+    fill: transparent;
+    height: rem(33px);
+    width: rem(52px);
+    stroke: $white;
+  }
+
+  &[data-position="left"] {
+    margin-top: $spacing-x7;
+    margin-left: rem(100px);
+    align-self: flex-start;
+  }
+  &[data-position="right"] {
+    margin-right: $spacing-x10;
+    margin-top: $spacing-x3;
+    align-self: flex-end;
+  }
+}
+
+.slideLogos {
+  margin-top: auto;
+  width: 100%;
+}
+
+.singleLogo {
+  justify-content: center;
+  display: flex!important;
+  min-height: rem(200px);
+  flex-direction: column;
+  border-width: 2px 1px;
+  border: solid $white;
+  align-items: center;
+  align-self: stretch;
+}
+
+.slideStats {
+  grid-template-rows: auto rem(48px) auto;
+  grid-template-columns: auto auto;
+  padding-right: $spacing-x10;
+  padding-left: rem(100px);
+  margin-top: auto;
+  display: grid;
+  width: 100%;
+}
+
+.slideLabel {
+  @include font-size($text-body-2);
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  margin-bottom: 0;
+}

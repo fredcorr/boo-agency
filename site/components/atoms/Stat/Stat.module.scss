@@ -1,0 +1,31 @@
+@import "../../../styles/includes/";
+
+.stat {
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: fit-content;
+  color: $white;
+  display: flex;
+
+  &:nth-of-type(1) {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+  }
+
+  &:nth-of-type(2) {
+    justify-self: flex-end;
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+  }
+}
+
+.statLabel {
+  @include font-size($text-stat-label);
+  margin-bottom: 0;
+}
+
+.statValue {
+  @include font-size($text-stat-number);
+  margin-bottom: 0;
+}
