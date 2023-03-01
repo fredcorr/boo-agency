@@ -14,7 +14,6 @@ export const navPages = `*[
   slug
 }`
 
-
 export const HomePageHeroQuery = `
   _type == 'HomepageHero' => {
     "video": video.asset->{ url },
@@ -28,21 +27,21 @@ export const QuickLinksQuery = `
 `
 
 export const SliderQuery = `
-  _type == 'Slider' => {
-    slides[]{
+  _type == 'WhyBoo' => {
+    ...,
+    clientLogos[]{
       ...,
-      slideLogos[]{
-        ...,
-        asset->{
-          url,
-          metadata
-        }
+      asset->{
+        url,
+        metadata
       }
-    },
+    }
   },
 `
 
-export const page = (slug: string[]) => `*[slug.current == '${slug.join('/')}'] | order(_updatedAt asc)[0] {
+export const page = (slug: string[]) => `*[slug.current == '${slug.join(
+  '/'
+)}'] | order(_updatedAt asc)[0] {
   components[]{
     ...,
     ${HomePageHeroQuery}

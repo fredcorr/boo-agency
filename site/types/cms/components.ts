@@ -6,7 +6,7 @@ export enum ComponentsTypeName {
   HERO_CONTACT = 'HeroContact',
   QUICK_LINKS = 'QuickLinks',
   SERVICES = 'Services',
-  SLIDER = 'Slider',
+  WHYBOO = 'WhyBoo',
   FOOTER = 'Footer',
 }
 
@@ -60,19 +60,14 @@ export interface StatType {
   statValue?: string
 }
 
-export interface SlidesType {
-  slideLabel?: string
-  isDefaultOpen?: boolean
-  slideTitle?: string
-  positionNextButton?: PositionNextButton,
-  slideBody?: RichText
-  slideLogos?: Image[]
+export interface WhyBooType extends ComponentBase {
+  _type: ComponentsTypeName.WHYBOO
   slideStats?: StatType[]
-}
-
-export interface SliderType extends ComponentBase {
-  _type: ComponentsTypeName.SLIDER
-  slides: SlidesType[]
+  clientLogos?: Image[]
+  label?: string
+  body?: RichText
+  title?: string
+  number: number
 }
 
 export type Components =
@@ -80,4 +75,4 @@ export type Components =
   | QuickLinksType
   | HeroContactType
   | ServicesType
-  | SliderType
+  | WhyBooType

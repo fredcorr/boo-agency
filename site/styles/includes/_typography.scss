@@ -192,6 +192,14 @@ $text-contact-button: (
 
 $text-slide: (
   null: (
+    60px,
+    57px,
+  ),
+  md: (
+    90px,
+    87px,
+  ),
+  lg: (
     115px,
     100px,
   ),
@@ -207,6 +215,17 @@ $text-stat-label: (
 $text-stat-number: (
   null: (
     177px,
+    120px,
+  ),
+);
+
+$text-number-why-boo: (
+  null: (
+    46px,
+    0px,
+  ),
+  lg: (
+    170px,
     120px,
   ),
 );

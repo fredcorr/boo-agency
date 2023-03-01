@@ -5,7 +5,7 @@ import { CMSPage } from '_types/cms'
 export const StandardPage = ({ components, ...props }: CMSPage) => {
   return (
     <Layout {...props}>
-      <>{components && components.map((comp) => RenderComponet(comp))}</>
+      <>{components && components.map((comp, key) => RenderComponet(comp, key))}</>
     </Layout>
   )
 }

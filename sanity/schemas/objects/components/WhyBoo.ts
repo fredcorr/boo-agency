@@ -1,44 +1,27 @@
-export const Slides = {
-  title: 'Slides',
-  name: 'slides',
+export const WhyBoo = {
+  title: 'Why Boo',
+  name: 'WhyBoo',
   type: 'object',
   fields: [
     {
-      title: 'Label',
-      name: 'slideLabel',
-      type: 'string',
-    },
-    {
-      title: 'Is default open?',
-      name: 'isDefaultOpen',
-      type: 'boolean',
-    },
-    {
       title: 'Title',
-      name: 'slideTitle',
+      name: 'title',
       type: 'string',
     },
     {
-      title: 'Poisition next button',
-      name: 'positionNextButton',
+      title: 'Label',
+      name: 'label',
       type: 'string',
-      options: {
-        list: [
-          {title: 'Left', value: 'left'},
-          {title: 'Right', value: 'right'},
-        ],
-        layout: 'dropdown',
-      },
     },
     {
       title: 'Body',
-      name: 'slideBody',
+      name: 'body',
       type: 'array',
       of: [{type: 'block'}],
     },
     {
-      title: 'Logos',
-      name: 'slideLogos',
+      title: 'Client logos',
+      name: 'clientLogos',
       type: 'array',
       of: [{type: 'image'}],
     },
@@ -47,8 +30,8 @@ export const Slides = {
       name: 'slideStats',
       type: 'array',
       of: [{
-        title: 'Stat',
-        name: 'singleState',
+        title: 'Stats',
+        name: 'stats',
         type: 'object',
         fields: [
           {
