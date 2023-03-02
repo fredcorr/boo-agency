@@ -13,6 +13,11 @@ export const Footer = {
       type: 'boolean',
     },
     {
+      title: 'Include navigation',
+      name: 'includeNavigation',
+      type: 'boolean',
+    },
+    {
       title: 'Footer theme',
       name: 'footerTheme',
       type: 'string',

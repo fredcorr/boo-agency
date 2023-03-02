@@ -6,12 +6,15 @@ export const allPages = `*[
   slug
 }`
 
-export const navPages = `*[ 
-  slug.current != '/' && includeNav == true
-] {
-  title,
-  _id,
-  slug
+export const navPages = `*[
+  _type == "settings"
+][0] {
+  email,
+  navigation[] {
+    linkLabel,
+    anchorLink,
+    link -> {slug, title} 
+  }
 }`
 
 export const HomePageHeroQuery = `
@@ -26,8 +29,8 @@ export const QuickLinksQuery = `
   },
 `
 
-export const SliderQuery = `
-  _type == 'WhyBoo' => {
+export const Logos = `
+  _type == 'Logos' => {
     ...,
     clientLogos[]{
       ...,
@@ -42,16 +45,17 @@ export const SliderQuery = `
 export const page = (slug: string[]) => `*[slug.current == '${slug.join(
   '/'
 )}'] | order(_updatedAt asc)[0] {
+  "settings": ${navPages},
   components[]{
     ...,
     ${HomePageHeroQuery}
     ${QuickLinksQuery}
-    ${SliderQuery}
+    ${Logos}
   },
   footer,
-  theme,
-  slug,
   title,
   _type,
+  theme,
+  slug,
   seo
 }`

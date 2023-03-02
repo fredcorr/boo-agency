@@ -23,12 +23,6 @@ export default {
       type: 'seo',
     },
     {
-      title: 'Include in nav',
-      name: 'includeNav',
-      type: 'boolean',
-    },
-
-    {
       title: 'Footer',
       name: 'footer',
       type: 'footer',
@@ -56,6 +50,7 @@ export default {
         {type: 'QuickLinks'},
         {type: 'Services'},
         {type: 'WhyBoo'},
+        {type: 'Logos'},
       ],
     },
   ],

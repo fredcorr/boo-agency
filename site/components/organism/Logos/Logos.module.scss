@@ -1,0 +1,54 @@
+@import "../../../styles/includes/";
+
+.logoInner {
+  grid-template-rows: repeat(2, auto);
+}
+
+.logosCopy {
+  @include font-size($text-body-1);
+  margin-top: $spacing-x6;
+  font-weight: lighter;
+  grid-column: 2 / -2;
+  margin-bottom: 0;
+  grid-row: 1 / 2;
+  color: $white;
+  width: 100%;
+
+  strong {
+    font-weight: 600;
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-top: $spacing-x10;
+  }
+}
+
+.clientLogos {
+  margin-top: $spacing-x5;
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    margin-top: $spacing-x10;
+  }
+}
+
+.singleLogo {
+  justify-content: center;
+  display: flex !important;
+  min-height: rem(250px);
+  flex-direction: column;
+  border-width: 2px 1px;
+  border: solid $white;
+  align-items: center;
+  align-self: stretch;
+
+  &:first-of-type {
+    border-left: none;
+  }
+
+  &:last-of-type {
+    border-right: none;
+  }
+}

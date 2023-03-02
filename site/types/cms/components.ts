@@ -1,5 +1,5 @@
 import { Image, RichText } from './base-schemas'
-import { CMSPage } from './base'
+import { CMSPage, SlugType } from './base'
 
 export enum ComponentsTypeName {
   HOME_PAGE_HERO = 'HomePageHero',
@@ -8,6 +8,7 @@ export enum ComponentsTypeName {
   SERVICES = 'Services',
   WHYBOO = 'WhyBoo',
   FOOTER = 'Footer',
+  LOGOS = 'Logos'
 }
 
 export enum PositionNextButton {
@@ -16,6 +17,7 @@ export enum PositionNextButton {
 }
 
 export interface ComponentBase {
+  anchorName?: SlugType
   _key: string
 }
 
@@ -30,15 +32,13 @@ export interface HomePageHeroType extends ComponentBase {
 
 export interface QuickLinksType extends ComponentBase {
   _type: ComponentsTypeName.QUICK_LINKS
-  headline?: string
+  content?: RichText
   links?: CMSPage[]
 }
 
 export interface HeroContactType extends ComponentBase {
   _type: ComponentsTypeName.HERO_CONTACT
   bodyText?: RichText
-  phoneNumber?: string
-  buttonLabel?: string
   linkedin?: string
   headline?: string
   email?: string
@@ -51,8 +51,8 @@ export interface ServicesCardType {
 
 export interface ServicesType extends ComponentBase {
   _type: ComponentsTypeName.SERVICES
-  headline?: string
   cards?: ServicesCardType[]
+  headline?: string
 }
 
 export interface StatType {
@@ -63,11 +63,18 @@ export interface StatType {
 export interface WhyBooType extends ComponentBase {
   _type: ComponentsTypeName.WHYBOO
   slideStats?: StatType[]
-  clientLogos?: Image[]
-  label?: string
   body?: RichText
   title?: string
   number: number
+  label?: string
+}
+
+export interface LogosType extends ComponentBase {
+  _type: ComponentsTypeName.LOGOS
+  clientLogos?: Image[]
+  anchorName?: SlugType
+  logosCopy?: RichText
+  addKeyline?: boolean
 }
 
 export type Components =
@@ -76,3 +83,4 @@ export type Components =
   | HeroContactType
   | ServicesType
   | WhyBooType
+  | LogosType

@@ -14,16 +14,19 @@ export const WhyBoo = {
       type: 'string',
     },
     {
+      title: 'Anchor name',
+      name: 'anchorName',
+      type: 'slug',
+      options: {
+        source: (doc: any, context: any) => context.parent.title,
+        slugify: (input: string) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
+      },
+    },
+    {
       title: 'Body',
       name: 'body',
       type: 'array',
       of: [{type: 'block'}],
-    },
-    {
-      title: 'Client logos',
-      name: 'clientLogos',
-      type: 'array',
-      of: [{type: 'image'}],
     },
     {
       title: 'Stats',

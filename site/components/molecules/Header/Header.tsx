@@ -1,7 +1,9 @@
+import { useSettings } from 'contexts/settings'
+import { useState, useEffect } from 'react'
 import styles from './Header.module.scss'
 import { CMSPageTheme } from '_types/cms'
+import { useRouter } from 'next/router'
 import Menu from '_atoms/Menu/Menu'
-import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -16,11 +18,18 @@ export interface NavThemeState {
 
 const Header = ({ theme }: HeaderProps) => {
   const [navState, setNavState] = useState<boolean>(false)
+  const { email } = useSettings()
+  const router = useRouter()
   const logoColor = (state: boolean) =>
     !!state || theme === CMSPageTheme.ORANGE ? 'black' : 'white'
   const handleMenuOpen = (state: boolean) => {
     setNavState(state)
   }
+
+  useEffect(() => {
+    setNavState(false)
+  }, [router.query.slug])
+
   return (
     <header className={styles.header}>
       <Link href="/" className={styles.logo}>
@@ -31,7 +40,7 @@ const Header = ({ theme }: HeaderProps) => {
         />
       </Link>
       <nav className={styles.nav} data-is-open={navState} data-theme={theme}>
-        <Link href="/" className={styles.contactLink}>
+        <Link href={`mailto:${email}`} className={styles.contactLink}>
           SAY HELLO
         </Link>
         <button

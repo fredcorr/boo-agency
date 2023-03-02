@@ -99,24 +99,6 @@
   }
 }
 
-.clientLogos {
-  margin-top: $spacing-x10;
-  grid-column: 1 / -1;
-  grid-row: 4 / 5;
-  width: 100%;
-}
-
-.singleLogo {
-  justify-content: center;
-  display: flex !important;
-  min-height: rem(250px);
-  flex-direction: column;
-  border-width: 2px 1px;
-  border: solid $white;
-  align-items: center;
-  align-self: stretch;
-}
-
 .stats {
   background-image: url('/images/gradient-displacement.png');
   background-position: left bottom;

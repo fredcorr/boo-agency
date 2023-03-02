@@ -1,7 +1,23 @@
 import { Components } from "./components"
 import { Image } from "./base-schemas"
 
+export interface CMSSettings {
+  navigation?: NavItem[]
+  email?: string
+}
+
+export interface NavItem {
+  anchorLink?: string
+  linkLabel?:string 
+  link: CMSPage
+}
+
+export interface SlugType {
+  current: string
+}
+
 export interface CMSPage {
+  settings: CMSSettings,
   components?: Components[]
   theme: CMSPageTheme
   _createdAt: string
@@ -11,9 +27,7 @@ export interface CMSPage {
   title: string
   _type: string
   _id: string
-  slug: {
-    current: string
-  };
+  slug: SlugType;
 }
 
 export enum CMSPageTheme {
@@ -28,6 +42,7 @@ export enum FooterTheme {
 }
 
 export interface FooterType {
+  includeNavigation?: boolean
   footerTheme?: FooterTheme
   includeFooter?: boolean
   footerCopy?: string

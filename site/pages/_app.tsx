@@ -1,11 +1,17 @@
-import { NavPagesProvider } from 'contexts/nav-pages'
+import { SettingsProvider } from 'contexts/settings'
 import type { AppProps } from 'next/app'
+import { useRouter } from 'next/router'
+import { CMSPage } from '_types/cms'
 import '../styles/main.scss'
 
-export default function App({ Component, pageProps }: AppProps) {
+export interface App extends AppProps {
+  pageProps: CMSPage
+}
+
+export default function App({ Component, pageProps }: App) {
   return (
-    <NavPagesProvider items={pageProps.navPages}>
+    <SettingsProvider items={pageProps.settings}>
       <Component {...pageProps} />
-    </NavPagesProvider>
+    </SettingsProvider>
   )
 }

@@ -6,8 +6,6 @@ import { HeroContactType } from '_types/cms'
 import Link from 'next/link'
 
 const HeroContact = ({
-  phoneNumber,
-  buttonLabel,
   linkedin,
   bodyText,
   headline,
@@ -24,26 +22,12 @@ const HeroContact = ({
             {headline}
           </Heading>
         )}
-        {!!buttonLabel && !!email && (
-          <Link
-            className={styles.heroContactLink}
-            href={`mailto:${email}`}
-            data-is-mobile={false}
-          >
-            {buttonLabel}
-          </Link>
-        )}
       </ComponentLayout>
       <footer className={styles.footer}>
         <div className={styles.footerContact}>
           {!!email && (
             <Link href={`mailto:${email}`} className={styles.email}>
               {email}
-            </Link>
-          )}
-          {!!phoneNumber && (
-            <Link href={`tel:${phoneNumber}`} className={styles.phoneNumber}>
-              {phoneNumber}
             </Link>
           )}
         </div>
@@ -53,15 +37,6 @@ const HeroContact = ({
         {!!linkedin && (
           <Link className={styles.linkedin} href={linkedin}>
             LinkedIn
-          </Link>
-        )}
-        {!!buttonLabel && !!email && (
-          <Link
-            className={styles.heroContactLink}
-            href={`mailto:${email}`}
-            data-is-mobile={true}
-          >
-            {buttonLabel}
           </Link>
         )}
       </footer>
