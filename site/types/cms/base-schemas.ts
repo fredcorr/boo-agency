@@ -1,7 +1,8 @@
 import { PortableTextBlock } from "@sanity/types"
 
 export interface Image {
-	_id: string
+	asset: {
+		_id: string
 	_type: string
 	assetId: string
 	creditLine?: string
@@ -25,6 +26,7 @@ export interface Image {
 		url: string
 	},
 	url: string
+	}
 }
 
 export interface Link {

@@ -1,0 +1,23 @@
+@import "../../../styles/includes/";
+
+.stat {
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  color: $white;
+  display: flex;
+
+  &:last-of-type {
+    align-self: flex-end;
+  }
+}
+
+.statLabel {
+  @include font-size($text-stat-label);
+  margin-bottom: 0;
+}
+
+.statValue {
+  @include font-size($text-stat-number);
+  margin-bottom: 0;
+}

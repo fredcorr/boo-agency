@@ -55,6 +55,7 @@ export default {
         {type: 'HeroContact'},
         {type: 'QuickLinks'},
         {type: 'Services'},
+        {type: 'WhyBoo'},
       ],
     },
   ],

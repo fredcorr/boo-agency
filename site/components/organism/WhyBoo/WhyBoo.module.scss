@@ -1,0 +1,142 @@
+@import "../../../styles/includes/";
+
+.whyBoo {
+  grid-template-rows: rem(1px) auto auto auto;
+  margin-bottom: $spacing-x6;
+  padding-top: $spacing-x2;
+  color: $white;
+
+  &::after {
+    background-color: $orange;
+    grid-column: 1 / -3;
+    position: relative;
+    grid-row: 1 / 2;
+    height: rem(1px);
+    display: block;
+    content: "";
+    width: 100%;
+    z-index: 1;
+    right: 0;
+    top: 0;
+  }
+
+  @include media-breakpoint-up(lg) {
+    grid-template-rows: rem(1px) auto $spacing-x4 auto;
+    margin-bottom: $spacing-x8;
+    padding-top: $spacing-x5;
+
+    &::after {
+      grid-column: 1 / -2;
+    }
+  }
+}
+
+.title {
+  @include font-size($text-slide);
+  margin-top: $spacing-x3;
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+  grid-row: 2 / 4;
+  color: $white;
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    margin-top: $spacing-x5;
+    grid-column: 1 / 8;
+  }
+}
+
+.label {
+  @include font-size($text-body-2);
+  transform: translateY(-50%);
+  padding-right: $spacing-x2;
+  text-transform: uppercase;
+  background-color: $black;
+  position: absolute;
+  grid-column: 1 / 6;
+  margin-bottom: 0;
+  grid-row: 1 / 2;
+  z-index: 2;
+
+  @include media-breakpoint-up(lg) {
+    padding-right: $spacing-x4;
+  }
+}
+
+.number {
+  @include font-size($text-number-why-boo);
+  justify-self: flex-end;
+  grid-column: -3 / -1;
+  grid-row: 1 / 2;
+  font-weight: 200;
+  color: $grey;
+
+  @include media-breakpoint-up(lg) {
+    grid-column: -4 / -1;
+  }
+}
+
+.body {
+  @include font-size($text-body-3);
+  margin-top: $spacing-x4;
+  grid-column: 1 / -1;
+  font-weight: 200;
+  grid-row: 4 / 5;
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin-top: $spacing-x1;
+    grid-column: 6 / -2;
+    grid-row: 4 / 6;
+
+    [data-has-stats="true"] & {
+      margin-top: $spacing-x4;
+      grid-column: 1 / 6;
+    }
+  }
+}
+
+.clientLogos {
+  margin-top: $spacing-x10;
+  grid-column: 1 / -1;
+  grid-row: 4 / 5;
+  width: 100%;
+}
+
+.singleLogo {
+  justify-content: center;
+  display: flex !important;
+  min-height: rem(250px);
+  flex-direction: column;
+  border-width: 2px 1px;
+  border: solid $white;
+  align-items: center;
+  align-self: stretch;
+}
+
+.stats {
+  background-image: url('/images/gradient-displacement.png');
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: $spacing-x3;
+  flex-direction: column;
+  grid-column: 1 / -1;
+  align-self: stretch;
+  gap: $spacing-x4;
+  grid-row: 5 / 6;
+  display: flex;
+  width: 100%;
+  
+  @include media-breakpoint-up(lg) {
+    grid-column: 7 / -1;
+    grid-row: 4 / 6;
+    margin-top: 0;
+    gap: 0;
+  }
+}
