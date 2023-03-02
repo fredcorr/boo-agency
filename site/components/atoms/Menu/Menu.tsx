@@ -1,9 +1,9 @@
 import { menuAnim, transition } from '_utils/animations'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useSettings } from 'contexts/settings'
 import styles from './Menu.module.scss'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { useNavPages } from 'contexts/nav-pages'
 
 export interface MenuProps {
   isOpen: boolean
@@ -11,7 +11,7 @@ export interface MenuProps {
 
 const Menu = ({ isOpen }: MenuProps) => {
   const { asPath } = useRouter()
-  const pages = useNavPages()
+  const { navigation } = useSettings()
 
   return (
     <>
@@ -26,20 +26,22 @@ const Menu = ({ isOpen }: MenuProps) => {
             exit="out"
           >
             <div className={styles.menuInner}>
-              {pages.map(({ slug, title }, i) => (
-                <motion.div
-                  variants={menuAnim}
-                  key={i}
-                >
-                  <Link
-                    data-active={asPath === slug.current}
-                    className={styles.menuItem}
-                    href={slug.current}
-                  >
-                    {title}
-                  </Link>
-                </motion.div>
-              ))}
+              {navigation?.map(({ link, linkLabel, anchorLink }, i) => {
+                const url = `${link.slug.current}${
+                  anchorLink ? `#${anchorLink}` : ''
+                }`
+                return (
+                  <motion.div variants={menuAnim} key={i}>
+                    <Link
+                      data-active={asPath === url}
+                      className={styles.menuItem}
+                      href={url}
+                    >
+                      {linkLabel || link.title}
+                    </Link>
+                  </motion.div>
+                )
+              })}
             </div>
           </motion.div>
         )}

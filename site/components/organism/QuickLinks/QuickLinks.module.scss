@@ -1,7 +1,7 @@
 @import '../../../styles/includes/';
 
 .quickLinks {
-  grid-template-rows: $spacing-x8 auto $spacing-x8 auto;
+  grid-template-rows: $spacing-x8 auto $spacing-x5 auto;
   position: relative;
 
   @include media-breakpoint-up(md) {
@@ -37,18 +37,27 @@
 }
 
 .quickLinksHeadline {
-  @include font-size($textH2);
-  grid-column: 2 / -3;
+  @include font-size($text-body-1);
+  font-weight: lighter;
+  grid-column: 2 / -2;
   margin-bottom: 0;
   grid-row: 2 / 3;
   color: $white;
+
+  strong {
+    font-weight: 600;
+  }
 }
 
 .quickLinksUrl {
   border-top: 1px solid $white;
-  padding-top: $spacing-x3;
+  padding-top: $spacing-x2;
   grid-column: 2 / -2;
   grid-row: 4 / 5;
+
+  @include media-breakpoint-up(md) {
+    padding-top: $spacing-x3;
+  }
 }
 
 .links {

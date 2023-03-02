@@ -19,6 +19,9 @@
   grid-row: 1 / 2;
 
   @include media-breakpoint-up(md) {
+    grid-column: 1 / 10;
+  }
+  @include media-breakpoint-up(lg) {
     grid-column: 1 / 8;
   }
 }

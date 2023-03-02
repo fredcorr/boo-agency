@@ -1,9 +1,16 @@
 @import '../../../styles/includes/';
 
 .keyline {
-  border-radius: rem(52px) rem(52px) 0 0;
   border: solid $white;
-  border-width: 1px 1px 0px 1px;
   grid-column: 1 / -1;
   grid-row: 1 / -1;
+
+  &[data-type="open"] {
+    border-radius: rem(52px) rem(52px) 0 0;
+    border-width: 1px 1px 0px 1px;
+  }
+
+  &[data-type="sides"] {
+    border-width: 0px 1px 0px 1px;
+  }
 }

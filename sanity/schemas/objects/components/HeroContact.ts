@@ -20,19 +20,9 @@ export const HeroContact = {
       type: 'string',
     },
     {
-      title: 'Phoner number',
-      name: 'phoneNumber',
-      type: 'string',
-    },
-    {
       title: 'Linkedin',
       name: 'linkedin',
       type: 'url',
-    },
-    {
-      title: 'Email',
-      name: 'email',
-      type: 'email',
     },
   ],
 }

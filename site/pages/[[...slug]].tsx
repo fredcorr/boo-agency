@@ -38,13 +38,11 @@ export async function getStaticProps({
   preview,
 }: GetStaticPropsContext) {
   const slug = (params?.slug as string[]) || ['/']
-  const cmsPages = await getClient(false).fetch(navPages)
   const props = await getClient(preview).fetch(page(slug))
 
   return {
     props: {
       ...props,
-      navPages: cmsPages
     },
   }
 }

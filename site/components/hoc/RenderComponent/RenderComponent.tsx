@@ -4,6 +4,7 @@ import { Components, ComponentsTypeName } from '_types/cms'
 import QuickLinks from '_organism/QuickLinks/QuickLinks'
 import Services from '_organism/Services/Services'
 import Slider from '_organism/WhyBoo/WhyBoo'
+import Logos from '_organism/Logos/Logos'
 import dynamic from 'next/dynamic'
 
 const DynamicQuickLinks = dynamic(
@@ -26,6 +27,10 @@ const DynamicWhyBoo = dynamic(
   () => import('_organism/WhyBoo/WhyBoo')
 ) as typeof Slider
 
+const DynamicLogos = dynamic(
+  () => import('_organism/Logos/Logos')
+) as typeof Logos
+
 const RenderComponet = (data: Components, key: number ) => {
   switch (data._type) {
     case ComponentsTypeName.HERO_CONTACT:
@@ -38,6 +43,8 @@ const RenderComponet = (data: Components, key: number ) => {
       return <DynamicServices {...data} key={key} />
     case ComponentsTypeName.WHYBOO:
       return <DynamicWhyBoo {...data} number={key} key={key} />
+    case ComponentsTypeName.LOGOS:
+      return <DynamicLogos {...data} key={key} />
     default:
       return null
   }
