@@ -18,7 +18,7 @@ export interface NavThemeState {
 
 const Header = ({ theme }: HeaderProps) => {
   const [navState, setNavState] = useState<boolean>(false)
-  const { email } = useSettings()
+  const settings = useSettings()
   const router = useRouter()
   const logoColor = (state: boolean) =>
     !!state || theme === CMSPageTheme.ORANGE ? 'black' : 'white'
@@ -40,7 +40,7 @@ const Header = ({ theme }: HeaderProps) => {
         />
       </Link>
       <nav className={styles.nav} data-is-open={navState} data-theme={theme}>
-        <Link href={`mailto:${email}`} className={styles.contactLink}>
+        <Link href={`mailto:${settings.email}`} className={styles.contactLink}>
           SAY HELLO
         </Link>
         <button

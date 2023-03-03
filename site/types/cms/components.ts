@@ -41,7 +41,6 @@ export interface HeroContactType extends ComponentBase {
   bodyText?: RichText
   linkedin?: string
   headline?: string
-  email?: string
 }
 
 export interface ServicesCardType {

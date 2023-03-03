@@ -28,7 +28,7 @@ export async function getStaticPaths({
 
   return {
     paths,
-    fallback: true,
+    fallback: 'blocking',
   }
 }
 
@@ -39,6 +39,18 @@ export async function getStaticProps({
 }: GetStaticPropsContext) {
   const slug = (params?.slug as string[]) || ['/']
   const props = await getClient(preview).fetch(page(slug))
+  const paths = await getClient(false)
+    .fetch(allPages)
+    .then((res) =>
+      res.map((path: CMSPage) => {
+        return {
+          params: {
+            slug: path.slug.current.split('/'),
+            id: path._id,
+          },
+        }
+      })
+    )
 
   return {
     props: {

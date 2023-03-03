@@ -1,5 +1,6 @@
 import ComponentLayout from '_hoc/ComponentLayout/ComponentLayout'
 import TextBlock from '_atoms/TextBlock/TextBlock'
+import { useSettings } from 'contexts/settings'
 import styles from './HeroContact.module.scss'
 import Heading from '_atoms/Heading/Heading'
 import { HeroContactType } from '_types/cms'
@@ -9,8 +10,8 @@ const HeroContact = ({
   linkedin,
   bodyText,
   headline,
-  email,
 }: HeroContactType) => {
+  const settings = useSettings()
   return (
     <>
       <ComponentLayout
@@ -25,9 +26,9 @@ const HeroContact = ({
       </ComponentLayout>
       <footer className={styles.footer}>
         <div className={styles.footerContact}>
-          {!!email && (
-            <Link href={`mailto:${email}`} className={styles.email}>
-              {email}
+          {!!settings.email && (
+            <Link href={`mailto:${settings.email}`} className={styles.email}>
+              {settings.email}
             </Link>
           )}
         </div>
