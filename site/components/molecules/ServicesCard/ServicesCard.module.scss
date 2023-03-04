@@ -35,6 +35,7 @@
 .serviceCardBody {
   @include font-size($text-body-2);
   transition: all .5s ease-in-out;
+  font-weight: 200;
   overflow: hidden;
   color: $black;
 
