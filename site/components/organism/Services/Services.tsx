@@ -4,22 +4,16 @@ import { useSettings } from 'contexts/settings'
 import { KeylineType } from '_types/local/base'
 import Heading from '_atoms/Heading/Heading'
 import styles from './Services.module.scss'
-import { useRef, useEffect } from 'react'
 import { ServicesType } from '_types/cms'
 
 const Services = ({ headline, cards, anchorName }: ServicesType) => {
   const { navigation } = useSettings()
-  const ref = useRef<HTMLDivElement>()
 
-  useEffect(() => {
-    console.log('myRef', ref.current)
-  }, [])
   return (
     <ComponentLayout
       addKeyline={KeylineType.SIDES}
       innerClass={styles.services}
       id={anchorName?.current}
-      ref={ref}
     >
       <Heading level={1} className={styles.servicesHeadline}>
         {headline}
