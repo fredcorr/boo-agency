@@ -18,7 +18,6 @@ const ServicesCard = ({ title, body }: ServicesCardType) => {
 
   const calculateOnWindowReisize = debounce(() => {
     if (!!ref?.current && !!currentHeight) {
-      console.log(ref.current.scrollHeight)
       setCurrentHeight(ref.current.scrollHeight)
     }
   }, 200)

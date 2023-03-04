@@ -1,40 +1,56 @@
 @import "../../../styles/includes/";
 
 .serviceCard {
-  box-shadow: inset 0px 0px 0px 2px $white;
+  box-shadow: inset 0px 0px 0px 2px $black;
   padding: $spacing-x6 $spacing-x4;
   transition: all .5s ease-in-out;
   border-radius: rem(30px);
   flex-direction: column;
   align-self: flex-start;
   box-sizing: border-box;
-  
   display: flex;
+  z-index: 5;
+  
 
   @include media-breakpoint-up(md) {
     padding: $spacing-x6;
   }
 
   &[data-is-open="true"] {
-    background-color: $orange;
+    background-color: $black;
     box-shadow: none
   }
 }
 
 .serviceCardTitle {
-  @include font-size($textH5)
+  transition: all .5s ease-in-out;
+  @include font-size($textH5);
+  color: $black;
+
+  [data-is-open="true"] & {
+    color: $white
+  }
 }
 
 .serviceCardBody {
   @include font-size($text-body-2);
   transition: all .5s ease-in-out;
   overflow: hidden;
+  color: $black;
+
+  [data-is-open="true"] & {
+    color: $white
+  }
+
+  strong {
+    font-weight: 600;
+  }
 }
 
 .serviceCardButton {
   transition: all .5s ease-in-out;
   background-color: transparent;
-  border: solid 2px $white;
+  border: solid 2px $black;
   justify-content: center;
   flex-direction: column;
   align-items: center;
@@ -52,7 +68,7 @@
   }
 
   [data-is-open="true"] & {
-    background-color: $white;
+    border: solid 2px $orange;
 
     svg {
       transform: rotate(-180deg);
@@ -64,7 +80,7 @@
     fill: transparent;
     height: rem(18px);
     width: rem(18px);
-    stroke: $white;
+    stroke: $black;
 
     @include media-breakpoint-up(md) {
       height: rem(22px);

@@ -3,12 +3,34 @@
 .stat {
   justify-content: flex-start;
   align-items: flex-start;
+  margin-top: $spacing-x4;
   flex-direction: column;
   color: $white;
   display: flex;
+  z-index: 5;
+  
+  @include media-breakpoint-up(lg) {
+    margin-top: 0;
+  }
 
-  &:last-of-type {
+  &[data-number="1"] {
+    justify-self: flex-end;
+    grid-column: 8 / -2;
+    grid-row: 5 / 6;
+
+    @include media-breakpoint-up(lg) {
+      grid-row: 3 / 4;
+    }
+  }
+
+  &[data-number="0"] {
     align-self: flex-end;
+    grid-column: 2 / 8;
+    grid-row: 6 / 7;
+
+    @include media-breakpoint-up(lg) {
+      grid-row: 4 / 5;
+    }
   }
 }
 

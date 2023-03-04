@@ -4,6 +4,12 @@
   border: solid $white;
   grid-column: 1 / -1;
   grid-row: 1 / -1;
+  z-index: 2;
+
+  &[data-type="all-sides"] {
+    border: solid $white 1px;
+    border-radius: rem(52px);
+  }
 
   &[data-type="open"] {
     border-radius: rem(52px) rem(52px) 0 0;

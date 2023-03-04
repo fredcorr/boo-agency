@@ -28,7 +28,7 @@ const Header = ({ theme }: HeaderProps) => {
 
   useEffect(() => {
     setNavState(false)
-  }, [router.query.slug])
+  }, [router])
 
   return (
     <header className={styles.header}>

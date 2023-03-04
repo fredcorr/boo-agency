@@ -54,6 +54,12 @@
   display: flex;
   z-index: 0;
 
+  video {
+    object-position: center center;
+    object-fit: cover;
+    width: 100%;
+  }
+
   @include media-breakpoint-up(md) {
     transform: translateX($spacing-x2);
     min-height: rem(490px);

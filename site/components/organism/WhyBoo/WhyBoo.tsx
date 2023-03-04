@@ -1,9 +1,11 @@
+import SwiperCarousel from '_molecules/SwiperCarousel/SwiperCarousel'
 import ComponentLayout from '_hoc/ComponentLayout/ComponentLayout'
 import TextBlock from '_atoms/TextBlock/TextBlock'
-import Heading from '_atoms/Heading/Heading'
+import { KeylineType } from '_types/local/base'
 import style from './WhyBoo.module.scss'
 import { WhyBooType } from '_types/cms'
 import Stat from '_atoms/Stat/Stat'
+import GradientBackground from '_atoms/GradientBackground/GradientBackground'
 
 export interface SliderState {
   isMobile: boolean
@@ -11,6 +13,7 @@ export interface SliderState {
 }
 
 const Slider = ({
+  clientLogos,
   slideStats,
   anchorName,
   number,
@@ -20,13 +23,17 @@ const Slider = ({
 }: WhyBooType) => {
   return (
     <ComponentLayout
+      addKeyline={KeylineType.All_SIDES}
+      data-has-logos={!!clientLogos}
       data-has-stats={!!slideStats}
       innerClass={style.whyBoo}
       id={anchorName?.current}
     >
-      <Heading level={1} className={style.title}>
-        {title}
-      </Heading>
+      {title && (
+        <div className={style.title}>
+          <TextBlock value={title} />
+        </div>
+      )}
       <p className={style.number}>{number < 10 ? `0${number}` : number}</p>
       {label && <p className={style.label}>{label}</p>}
       {body && (
@@ -34,12 +41,21 @@ const Slider = ({
           <TextBlock value={body} />
         </div>
       )}
-      {slideStats && (
-        <div className={style.stats}>
-          {slideStats.map((st, i) => (
-            <Stat {...st} key={i} />
-          ))}
+      {clientLogos && (
+        <>
+        <div className={style.gradient}>
+          <GradientBackground />
         </div>
+        <div className={style.clientLogos}>
+          <SwiperCarousel logos={clientLogos} />
+        </div>
+        </>
+      )}
+      {slideStats && (
+        <>
+          <span className={style.background} />
+          {slideStats.map((st, i) => <Stat {...st} number={i} key={i} />)}
+        </>
       )}
     </ComponentLayout>
   )

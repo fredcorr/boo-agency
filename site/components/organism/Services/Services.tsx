@@ -1,16 +1,26 @@
 import ComponentLayout from '_hoc/ComponentLayout/ComponentLayout'
 import ServicesCard from '_molecules/ServicesCard/ServicesCard'
 import { useSettings } from 'contexts/settings'
+import { KeylineType } from '_types/local/base'
 import Heading from '_atoms/Heading/Heading'
 import styles from './Services.module.scss'
+import { useRef, useEffect } from 'react'
 import { ServicesType } from '_types/cms'
-import Link from 'next/link'
-import { KeylineType } from '_types/local/base'
 
 const Services = ({ headline, cards, anchorName }: ServicesType) => {
   const { navigation } = useSettings()
+  const ref = useRef<HTMLDivElement>()
+
+  useEffect(() => {
+    console.log('myRef', ref.current)
+  }, [])
   return (
-    <ComponentLayout innerClass={styles.services} id={anchorName?.current} addKeyline={KeylineType.SIDES}>
+    <ComponentLayout
+      addKeyline={KeylineType.SIDES}
+      innerClass={styles.services}
+      id={anchorName?.current}
+      ref={ref}
+    >
       <Heading level={1} className={styles.servicesHeadline}>
         {headline}
       </Heading>

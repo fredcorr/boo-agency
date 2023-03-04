@@ -1,87 +1,76 @@
 @import "../../../styles/includes/";
 
 .whyBoo {
-  grid-template-rows: rem(1px) auto auto auto;
-  margin-bottom: $spacing-x6;
+  grid-template-rows: $spacing-x8 minmax($spacing-x4, auto) repeat(4, auto) $spacing-x8;
+  padding-bottom: $spacing-x6;
   padding-top: $spacing-x2;
   color: $white;
 
-  &::after {
-    background-color: $orange;
-    grid-column: 1 / -3;
-    position: relative;
-    grid-row: 1 / 2;
-    height: rem(1px);
-    display: block;
-    content: "";
-    width: 100%;
-    z-index: 1;
-    right: 0;
-    top: 0;
+  &:last-of-type {
+    padding-bottom: 0;
   }
 
   @include media-breakpoint-up(lg) {
-    grid-template-rows: rem(1px) auto $spacing-x4 auto;
-    margin-bottom: $spacing-x8;
+    grid-template-rows: $spacing-x4 minmax($spacing-x4, auto) repeat(4, auto) $spacing-x8;
+    padding-bottom: $spacing-x8;
     padding-top: $spacing-x5;
-
-    &::after {
-      grid-column: 1 / -2;
-    }
   }
 }
 
 .title {
   @include font-size($text-slide);
-  margin-top: $spacing-x3;
-  grid-column: 1 / -1;
+  grid-column: 2 / -2;
   margin-bottom: 0;
-  grid-row: 2 / 4;
+  grid-row: 3 / 4;
   color: $white;
   width: 100%;
+  z-index: 5;
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
 
   @include media-breakpoint-up(lg) {
-    margin-top: $spacing-x5;
-    grid-column: 1 / 8;
+    grid-column: 2 / 9;
   }
 }
 
 .label {
-  @include font-size($text-body-2);
-  transform: translateY(-50%);
-  padding-right: $spacing-x2;
+  @include font-size($text-body-3);
   text-transform: uppercase;
-  background-color: $black;
-  position: absolute;
-  grid-column: 1 / 6;
+  grid-column: 2 / 8;
   margin-bottom: 0;
-  grid-row: 1 / 2;
-  z-index: 2;
+  grid-row: 2 / 3;
+  z-index: 5;
 
   @include media-breakpoint-up(lg) {
-    padding-right: $spacing-x4;
+    align-self: flex-end;
   }
 }
 
 .number {
   @include font-size($text-number-why-boo);
   justify-self: flex-end;
-  grid-column: -3 / -1;
-  grid-row: 1 / 2;
+  grid-column: -3 / -2;
+  margin-bottom: 0;
   font-weight: 200;
-  color: $grey;
+  grid-row: 2 / 3;
+  color: $white;
+  z-index: 5;
 
   @include media-breakpoint-up(lg) {
-    grid-column: -4 / -1;
+    grid-column: -4 / -2;
   }
 }
 
 .body {
-  @include font-size($text-body-3);
+  @include font-size($text-body-2);
   margin-top: $spacing-x4;
-  grid-column: 1 / -1;
+  align-self: flex-end;
+  grid-column: 2 / -2;
   font-weight: 200;
   grid-row: 4 / 5;
+  z-index: 5;
 
   & > *:last-child {
     margin-bottom: 0;
@@ -89,18 +78,17 @@
 
   @include media-breakpoint-up(lg) {
     margin-top: $spacing-x1;
-    grid-column: 6 / -2;
-    grid-row: 4 / 6;
+    grid-column: 8 / -2;
+    grid-row: 4 / 5;
 
     [data-has-stats="true"] & {
       margin-top: $spacing-x4;
-      grid-column: 1 / 6;
     }
   }
 }
 
 .stats {
-  background-image: url('/images/gradient-displacement.png');
+  background-image: url("/images/gradient-displacement.png");
   background-position: left bottom;
   background-repeat: no-repeat;
   background-size: 70% 70%;
@@ -114,11 +102,44 @@
   grid-row: 5 / 6;
   display: flex;
   width: 100%;
-  
+
   @include media-breakpoint-up(lg) {
     grid-column: 7 / -1;
     grid-row: 4 / 6;
     margin-top: 0;
     gap: 0;
+  }
+}
+
+.gradient {
+  border-radius: rem(52px);
+  grid-column: 1 / -1;
+  position: relative;
+  grid-row: 1 / -1;
+  overflow: hidden;
+  display: block;
+  z-index: 0;
+}
+
+.clientLogos {
+  margin-top: $spacing-x6;
+  grid-column: 1 / -1;
+  grid-row: 5 / 6;
+  width: 100%;
+  z-index: 5;
+}
+
+.background {
+  border-radius: 0 0 rem(52px) rem(52px);
+  background-color: $orange;
+  grid-column: 1 / -1;
+  overflow: hidden;
+  grid-row: -3 / -1;
+  z-index: 3;
+
+  @include media-breakpoint-up(lg) {
+    border-radius: rem(52px) 0 0 rem(52px);
+    grid-column: 1 / 7;
+    grid-row: 1 / -1;
   }
 }

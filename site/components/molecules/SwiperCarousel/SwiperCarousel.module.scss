@@ -1,0 +1,40 @@
+@import "../../../styles/includes/";
+
+
+.singleLogo {
+  justify-content: center;
+  display: flex !important;
+  min-height: rem(250px);
+  flex-direction: column;
+  border-width: 2px 1px;
+  padding: $spacing-x3;
+  border: solid $white;
+  align-self: stretch;
+  align-items: center;
+
+  &:first-of-type {
+    border-left: none;
+  }
+
+  &:last-of-type {
+    border-right: none;
+  }
+}
+
+.imageWrapper {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  display: flex;
+  width: 100%;
+
+
+  img {
+    object-position: center center;
+    max-height: rem(100px);
+    object-fit: contain;
+    position: relative;
+    width: 100%;
+  }
+}

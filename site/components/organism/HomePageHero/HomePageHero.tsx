@@ -4,7 +4,6 @@ import { KeylineType } from '_types/local/base'
 import styles from './HomePageHero.module.scss'
 import { HomePageHeroType } from '_types/cms'
 import Heading from '_atoms/Heading/Heading'
-import Image from 'next/image'
 
 const HomePagehero = ({
   subHeadline,
@@ -15,6 +14,8 @@ const HomePagehero = ({
   body,
 }: HomePageHeroType) => {
   const diaplyNumber = (digit: number) => (digit < 10 ? '0' + digit : digit)
+  console.log(video);
+  
   return (
     <ComponentLayout
       innerClass={styles.HomePageHero}
@@ -28,7 +29,13 @@ const HomePagehero = ({
         <p className={styles.subHeadline}>{subHeadline}</p>
       </div>
       {number && <p className={styles.number}>{diaplyNumber(number)}</p>}
-      {video && <div className={styles.video}></div>}
+      {video && (
+        <div className={styles.video}>
+          <video loop autoPlay muted>
+            <source src={video.url} type={video.mimeType} />
+          </video>
+        </div>
+      )}
       {body && (
         <div className={styles.body}>
           <TextBlock value={body} />

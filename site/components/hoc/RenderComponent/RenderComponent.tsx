@@ -42,7 +42,7 @@ const RenderComponet = (data: Components, key: number ) => {
     case ComponentsTypeName.SERVICES:
       return <DynamicServices {...data} key={key} />
     case ComponentsTypeName.WHYBOO:
-      return <DynamicWhyBoo {...data} number={key} key={key} />
+      return <DynamicWhyBoo {...data} number={key + 1} key={key} />
     case ComponentsTypeName.LOGOS:
       return <DynamicLogos {...data} key={key} />
     default:

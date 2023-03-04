@@ -1,6 +1,6 @@
 import styles from './ComponentLayout.module.scss'
 import { KeylineType } from '_types/local/base'
-import { ReactNode } from 'react'
+import { ReactNode, forwardRef } from 'react'
 
 export interface ComponentLayoutProps {
   containerClass?: string
@@ -10,13 +10,15 @@ export interface ComponentLayoutProps {
   id?: string
 }
 
-const ComponentLayout = ({
+export type Ref = HTMLDivElement
+
+const ComponentLayout = forwardRef<HTMLDivElement, ComponentLayoutProps>(({
   containerClass,
   addKeyline,
   innerClass,
   children,
   ...props
-}: ComponentLayoutProps) => {
+}, ref) => {
   return (
     <section
       className={`componentLayout ${containerClass ? containerClass : ''}`}
@@ -30,6 +32,8 @@ const ComponentLayout = ({
       </div>
     </section>
   )
-}
+})
+
+ComponentLayout.displayName = 'ComponentLayout'
 
 export default ComponentLayout

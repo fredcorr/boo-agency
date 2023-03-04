@@ -17,15 +17,29 @@ export const navPages = `*[
   }
 }`
 
-export const HomePageHeroQuery = `
-  _type == 'HomepageHero' => {
-    "video": video.asset->{ url },
-  },
-`
-
 export const QuickLinksQuery = `
   _type == 'QuickLinks' => {
     links[]->{title, slug},
+  },
+`
+
+export const WhyBoo = `
+  _type == 'WhyBoo' => {
+    ...,
+    clientLogos[]{
+      ...,
+      asset->{
+        url,
+        metadata
+      }
+    }
+  },
+`
+
+export const HomePageHeroQuery = `
+  _type == 'HomePageHero' => {
+    ...,
+    'video': video.asset->{url, ...},
   },
 `
 
@@ -50,6 +64,7 @@ export const page = (slug: string[]) => `*[slug.current == '${slug.join(
     ...,
     ${HomePageHeroQuery}
     ${QuickLinksQuery}
+    ${WhyBoo}
     ${Logos}
   },
   footer,

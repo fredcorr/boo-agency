@@ -6,7 +6,8 @@ export const WhyBoo = {
     {
       title: 'Title',
       name: 'title',
-      type: 'string',
+      type: 'array',
+      of: [{type: 'block'}],
     },
     {
       title: 'Label',
@@ -27,6 +28,12 @@ export const WhyBoo = {
       name: 'body',
       type: 'array',
       of: [{type: 'block'}],
+    },
+    {
+      title: 'Client logos',
+      name: 'clientLogos',
+      type: 'array',
+      of: [{type: 'image'}],
     },
     {
       title: 'Stats',

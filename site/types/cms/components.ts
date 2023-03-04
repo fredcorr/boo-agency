@@ -1,4 +1,4 @@
-import { Image, RichText } from './base-schemas'
+import { Image, File, RichText } from './base-schemas'
 import { CMSPage, SlugType } from './base'
 
 export enum ComponentsTypeName {
@@ -27,7 +27,7 @@ export interface HomePageHeroType extends ComponentBase {
   headline?: string
   number?: number
   body?: RichText
-  video?: Image
+  video?: File
 }
 
 export interface QuickLinksType extends ComponentBase {
@@ -57,13 +57,15 @@ export interface ServicesType extends ComponentBase {
 export interface StatType {
   statLabel?: string
   statValue?: string
+  number: number
 }
 
 export interface WhyBooType extends ComponentBase {
   _type: ComponentsTypeName.WHYBOO
   slideStats?: StatType[]
+  clientLogos?: Image[]
+  title?: RichText
   body?: RichText
-  title?: string
   number: number
   label?: string
 }

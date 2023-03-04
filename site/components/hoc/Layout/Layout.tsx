@@ -18,7 +18,11 @@ const Layout = ({ children, footer, seo, ...props }: LayoutProps) => {
       <Header theme={props.theme} />
       <main className={styles.main}>{children}</main>
       {footer && footer.includeFooter && <Footer {...footer} />}
-      {props.theme === CMSPageTheme.GRADIENT && <GradientBackground />}
+      {props.theme === CMSPageTheme.GRADIENT && (
+        <div className={styles.gradientBackground}>
+          <GradientBackground />
+        </div>
+      )}
     </div>
   )
 }
