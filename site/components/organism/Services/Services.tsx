@@ -7,8 +7,6 @@ import styles from './Services.module.scss'
 import { ServicesType } from '_types/cms'
 
 const Services = ({ headline, cards, anchorName }: ServicesType) => {
-  const { navigation } = useSettings()
-
   return (
     <ComponentLayout
       addKeyline={KeylineType.SIDES}

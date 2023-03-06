@@ -14,7 +14,6 @@ const HomePagehero = ({
   body,
 }: HomePageHeroType) => {
   const diaplyNumber = (digit: number) => (digit < 10 ? '0' + digit : digit)
-  console.log(video);
   
   return (
     <ComponentLayout

@@ -2,19 +2,15 @@
 
 
 .singleLogo {
-  justify-content: center;
+  border: solid $white;
+  border-width: 2px 2px 2px 0;
   display: flex !important;
+  justify-content: center;
   min-height: rem(250px);
   flex-direction: column;
-  border-width: 2px 1px;
   padding: $spacing-x3;
-  border: solid $white;
   align-self: stretch;
   align-items: center;
-
-  &:first-of-type {
-    border-left: none;
-  }
 
   &:last-of-type {
     border-right: none;

@@ -28,6 +28,7 @@ const Header = ({ theme }: HeaderProps) => {
 
   useEffect(() => {
     setNavState(false)
+    
   }, [router])
 
   return (
@@ -40,9 +41,9 @@ const Header = ({ theme }: HeaderProps) => {
         />
       </Link>
       <nav className={styles.nav} data-is-open={navState} data-theme={theme}>
-        <Link href={`mailto:${settings.email}`} className={styles.contactLink}>
+        {settings && (<Link href={`mailto:${settings.email || ''}`} className={styles.contactLink}>
           SAY HELLO
-        </Link>
+        </Link>)}
         <button
           onClick={() => handleMenuOpen(!navState)}
           className={styles.menuBtn}

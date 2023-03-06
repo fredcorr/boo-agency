@@ -36,7 +36,6 @@ export default {
               label: 'linkLabel'
             },
             prepare({pageTitle, label}: any) {
-              console.log(pageTitle)
               return {
                 title: label || pageTitle,
               }

@@ -1,6 +1,6 @@
 import { useSettings } from 'contexts/settings'
 import styles from './Footer.module.scss'
-import { FooterType } from '_types/cms'
+import { FooterTheme, FooterType } from '_types/cms'
 import Link from 'next/link'
 
 const Footer = ({ footerTheme, footerCopy, includeNavigation }: FooterType) => {
@@ -9,7 +9,9 @@ const Footer = ({ footerTheme, footerCopy, includeNavigation }: FooterType) => {
     <footer className={styles.footer} data-theme={footerTheme}>
       {includeNavigation && (
         <>
-          <span className={styles.keyLine} />
+          {footerTheme !== FooterTheme.DARK && (
+            <span className={styles.keyLine} />
+          )}
           <nav className={styles.footerNavigation}>
             {navigation?.map(({ link, linkLabel, anchorLink }, i) => (
               <Link
