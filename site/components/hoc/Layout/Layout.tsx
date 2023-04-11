@@ -13,13 +13,16 @@ export interface LayoutProps extends CMSPage {
 
 const Layout = ({ children, footer, seo, ...props }: LayoutProps) => {
   return (
-    <div className={styles.layout} data-theme={props.theme}>
+    <div className={styles.layout} data-theme={props.theme} id="#body">
       <Seo {...seo} />
       <Header theme={props.theme} />
       <main className={styles.main}>{children}</main>
       {footer && footer.includeFooter && <Footer {...footer} />}
       {props.theme === CMSPageTheme.GRADIENT && (
-        <div className={styles.gradientBackground}>
+        <div
+          className={styles.gradientBackground}
+          id="gradientBg"
+        >
           <GradientBackground />
         </div>
       )}

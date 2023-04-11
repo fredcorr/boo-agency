@@ -23,20 +23,9 @@ export const HomePageHero = {
       type: 'string',
     },
     {
-      title: 'Number',
-      name: 'number',
-      type: 'number',
-    },
-    {
       title: 'Video',
       name: 'video',
       type: 'file',
-    },
-    {
-      title: 'Body',
-      name: 'body',
-      type: 'array',
-      of: [{type: 'block'}],
     },
   ],
 }

@@ -1,6 +1,6 @@
-import { menuAnim, transition } from '_utils/animations'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useSettings } from 'contexts/settings'
+import { transition } from '_utils/animations'
 import styles from './Menu.module.scss'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
@@ -12,6 +12,28 @@ export interface MenuProps {
 const Menu = ({ isOpen }: MenuProps) => {
   const { asPath } = useRouter()
   const { navigation } = useSettings()
+
+  const menuAnim = {
+    in: {
+      y: '0%',
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+        ...transition,
+      },
+    },
+    out: {
+      y: '-10%',
+      opacity: 0,
+      transition: {
+        when: 'afterChildren',
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+        ...transition,
+      },
+    },
+  }
 
   return (
     <>

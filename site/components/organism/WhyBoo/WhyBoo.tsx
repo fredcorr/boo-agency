@@ -1,11 +1,13 @@
+import GradientBackground from '_atoms/GradientBackground/GradientBackground'
 import SwiperCarousel from '_molecules/SwiperCarousel/SwiperCarousel'
 import ComponentLayout from '_hoc/ComponentLayout/ComponentLayout'
 import TextBlock from '_atoms/TextBlock/TextBlock'
 import { KeylineType } from '_types/local/base'
+import { Animations } from '_utils/animations'
 import style from './WhyBoo.module.scss'
 import { WhyBooType } from '_types/cms'
+import { motion } from 'framer-motion'
 import Stat from '_atoms/Stat/Stat'
-import GradientBackground from '_atoms/GradientBackground/GradientBackground'
 
 export interface SliderState {
   isMobile: boolean
@@ -16,48 +18,84 @@ const Slider = ({
   clientLogos,
   slideStats,
   anchorName,
-  number,
   title,
   label,
   body,
 }: WhyBooType) => {
+  const { fadeFromBottom, fadeLeftToRight } = new Animations()
+
   return (
-    <ComponentLayout
-      addKeyline={KeylineType.All_SIDES}
-      data-has-logos={!!clientLogos}
-      data-has-stats={!!slideStats}
-      innerClass={style.whyBoo}
-      id={anchorName?.current}
-    >
-      {title && (
-        <div className={style.title}>
-          <TextBlock value={title} />
-        </div>
-      )}
-      <p className={style.number}>{number < 10 ? `0${number}` : number}</p>
-      {label && <p className={style.label}>{label}</p>}
-      {body && (
-        <div className={style.body}>
-          <TextBlock value={body} />
-        </div>
-      )}
-      {clientLogos && (
-        <>
-        <div className={style.gradient}>
-          <GradientBackground />
-        </div>
-        <div className={style.clientLogos}>
-          <SwiperCarousel logos={clientLogos} />
-        </div>
-        </>
-      )}
-      {slideStats && (
-        <>
-          <span className={style.background} />
-          {slideStats.map((st, i) => <Stat {...st} number={i} key={i} />)}
-        </>
-      )}
-    </ComponentLayout>
+      <ComponentLayout
+        animation={fadeFromBottom({ when: 'beforeChildren' })}
+        viewPort={{ once: true, amount: 0.6 }}
+        addKeyline={KeylineType.All_SIDES}
+        data-has-logos={!!clientLogos}
+        data-has-stats={!!slideStats}
+        innerClass={style.whyBoo}
+        id={anchorName?.current}
+      >
+        {label && (
+          <motion.p
+            variants={fadeFromBottom({ delay: 0.4 })}
+            viewport={{ once: true }}
+            className={style.label}
+            whileInView="visible"
+            initial="hidden"
+            exit="hidden"
+          >
+            {label}
+          </motion.p>
+        )}
+        {title && (
+          <motion.div
+            variants={fadeFromBottom({ delay: 0.5 })}
+            viewport={{ once: true }}
+            className={style.title}
+            whileInView="visible"
+            initial="hidden"
+            exit="hidden"
+          >
+            <TextBlock value={title} />
+          </motion.div>
+        )}
+        {body && (
+          <motion.div
+            variants={fadeLeftToRight({ delay: 0.5 })}
+            viewport={{ once: true }}
+            className={style.body}
+            whileInView="visible"
+            initial="hidden"
+            exit="hidden"
+          >
+            <TextBlock value={body} />
+          </motion.div>
+        )}
+        {clientLogos && (
+          <>
+            <div className={style.gradient}>
+              <GradientBackground />
+            </div>
+            <div className={style.clientLogos}>
+              <SwiperCarousel logos={clientLogos} />
+            </div>
+          </>
+        )}
+        {slideStats && (
+          <>
+            <motion.span
+              variants={fadeLeftToRight({ delay: 0.5 })}
+              className={style.background}
+              viewport={{ once: true }}
+              whileInView="visible"
+              initial="hidden"
+              exit="hidden"
+            />
+            {slideStats.map((st, i) => (
+              <Stat {...st} number={i} key={i} />
+            ))}
+          </>
+        )}
+      </ComponentLayout>
   )
 }
 

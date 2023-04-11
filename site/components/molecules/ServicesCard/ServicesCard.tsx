@@ -1,17 +1,21 @@
 import { useState, useRef, useEffect } from 'react'
 import TextBlock from '_atoms/TextBlock/TextBlock'
 import styles from './ServicesCard.module.scss'
+import { Animations } from '_utils/animations'
 import { ServicesCardType } from '_types/cms'
 import Heading from '_atoms/Heading/Heading'
 import ArrowDown from '_svgs/ArrowDown'
 import debounce from 'lodash/debounce'
+import { motion } from 'framer-motion'
 
 const ServicesCard = ({ title, body }: ServicesCardType) => {
-  const ref = useRef<HTMLDivElement>(null)
   const [currentHeight, setCurrentHeight] = useState<number>(0)
+  const { fadeFromBottom } = new Animations()
+  const ref = useRef<HTMLDivElement>(null)
 
   const hanldeTextReveal = () => {
     if (ref.current) {
+      console.log('vs')
       setCurrentHeight(!currentHeight ? ref.current?.scrollHeight : 0)
     }
   }
@@ -23,7 +27,9 @@ const ServicesCard = ({ title, body }: ServicesCardType) => {
   }, 200)
 
   useEffect(() => {
-    window.addEventListener('resize', calculateOnWindowReisize, { passive: true })
+    window.addEventListener('resize', calculateOnWindowReisize, {
+      passive: true,
+    })
 
     return () => {
       window.removeEventListener('resize', calculateOnWindowReisize)
@@ -31,7 +37,14 @@ const ServicesCard = ({ title, body }: ServicesCardType) => {
   }, [])
 
   return (
-    <div className={styles.serviceCard} data-is-open={currentHeight !== 0}>
+    <motion.div
+      data-is-open={currentHeight !== 0}
+      className={styles.serviceCard}
+      variants={fadeFromBottom()}
+      animate="visible"
+      initial="hidden"
+      exit="hidden"
+    >
       <Heading level={5} className={styles.serviceCardTitle}>
         {title}
       </Heading>
@@ -47,7 +60,7 @@ const ServicesCard = ({ title, body }: ServicesCardType) => {
       <button className={styles.serviceCardButton} onClick={hanldeTextReveal}>
         <ArrowDown />
       </button>
-    </div>
+    </motion.div>
   )
 }
 

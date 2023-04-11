@@ -4,6 +4,7 @@
   grid-template-rows: $spacing-x8 minmax($spacing-x4, auto) repeat(4, auto) $spacing-x8;
   padding-bottom: $spacing-x6;
   padding-top: $spacing-x2;
+  overflow: hidden;
   color: $white;
 
   &:last-of-type {

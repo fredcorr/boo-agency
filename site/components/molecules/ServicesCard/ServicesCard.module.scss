@@ -1,7 +1,7 @@
 @import "../../../styles/includes/";
 
 .serviceCard {
-  box-shadow: inset 0px 0px 0px 2px $black;
+  box-shadow: inset 0px 0px 0px 2px $white;
   padding: $spacing-x6 $spacing-x4;
   transition: all .5s ease-in-out;
   border-radius: rem(30px);
@@ -18,14 +18,14 @@
 
   &[data-is-open="true"] {
     background-color: $black;
-    box-shadow: none
   }
 }
 
 .serviceCardTitle {
   transition: all .5s ease-in-out;
   @include font-size($textH5);
-  color: $black;
+  color: $white;
+
 
   [data-is-open="true"] & {
     color: $white
@@ -37,7 +37,7 @@
   transition: all .5s ease-in-out;
   font-weight: 200;
   overflow: hidden;
-  color: $black;
+  color: $white;
 
   [data-is-open="true"] & {
     color: $white
@@ -51,7 +51,7 @@
 .serviceCardButton {
   transition: all .5s ease-in-out;
   background-color: transparent;
-  border: solid 2px $black;
+  border: solid 2px $white;
   justify-content: center;
   flex-direction: column;
   align-items: center;
@@ -81,7 +81,7 @@
     fill: transparent;
     height: rem(18px);
     width: rem(18px);
-    stroke: $black;
+    stroke: $white;
 
     @include media-breakpoint-up(md) {
       height: rem(22px);

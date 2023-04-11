@@ -4,24 +4,83 @@ export const transition = {
   type: 'tween',
 }
 
-export const menuAnim = {
-  in: {
-    y: '0%',
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: .1,
-      ...transition,
+export type Animation = (trans?: any) => any
+
+export class Animations {
+
+  fade: Animation = (trans) => ({
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: 'easeInOut',
+        type: 'Tween',
+        ...trans,
+      },
     },
-  },
-  out: {
-    y: '-10%',
-    opacity: 0,
-    transition: {
-      when: "afterChildren",
-      staggerChildren: 0.1,
-      delayChildren: .1,
-      ...transition,
+    hidden: { opacity: 0 },
+  })
+
+  fadeFromBottom: Animation = (trans) => ({
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: 'easeInOut',
+        type: 'Tween',
+        ...trans,
+      },
     },
-  },
+    hidden: { opacity: 0, y: '10%' },
+  })
+
+  fadeFromTop: Animation = (trans) => ({
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: 'easeInOut',
+        type: 'Tween',
+        ...trans,
+      },
+    },
+    hidden: { opacity: 0, y: '-10%' },
+  })
+
+  fadeRightToLeft: Animation = (trans) => ({
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        ...transition,
+        ...trans,
+      },
+    },
+    hidden: { opacity: 0, x: '10%' },
+  })
+
+  fadeLeftToRight: Animation = (trans) => ({
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        ...transition,
+        ...trans,
+      },
+    },
+    hidden: { opacity: 0, x: '-10%' },
+  })
+
+  scaleLeftToRight: Animation = (trans) => ({
+    visible: {
+      scaleX: 1,
+      transition: {
+        ...transition,
+        ...trans,
+      },
+    },
+    hidden: { scaleX: 0, transformOrigin: 'left center' },
+  })
 }

@@ -25,8 +25,6 @@ export interface HomePageHeroType extends ComponentBase {
   _type: ComponentsTypeName.HOME_PAGE_HERO
   subHeadline?: string
   headline?: string
-  number?: number
-  body?: RichText
   video?: File
 }
 
@@ -66,7 +64,6 @@ export interface WhyBooType extends ComponentBase {
   clientLogos?: Image[]
   title?: RichText
   body?: RichText
-  number: number
   label?: string
 }
 

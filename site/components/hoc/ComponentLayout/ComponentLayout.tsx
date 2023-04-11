@@ -2,15 +2,17 @@ import styles from './ComponentLayout.module.scss'
 import { KeylineType } from '_types/local/base'
 import { ReactNode } from 'react'
 
-export interface ComponentLayoutProps {
+import IntersectionObserver, {
+  IntersectionObserverProps,
+} from '_hoc/IntersectionObserver/IntersectionObserver'
+
+export interface ComponentLayoutProps extends IntersectionObserverProps {
   containerClass?: string
-  addKeyline?: KeylineType,
+  addKeyline?: KeylineType
   innerClass?: string
   children: ReactNode
   id?: string
 }
-
-export type Ref = HTMLDivElement
 
 const ComponentLayout = ({
   containerClass,
@@ -22,14 +24,16 @@ const ComponentLayout = ({
   return (
     <section
       className={`componentLayout ${containerClass ? containerClass : ''}`}
-      {...props}
     >
-      <div
+      <IntersectionObserver
         className={`componentInner ${innerClass ? innerClass : ''}`}
+        {...props}
       >
-        {addKeyline && <span className={styles.keyline} data-type={addKeyline}></span>}
+        {addKeyline && (
+          <span className={styles.keyline} data-type={addKeyline}></span>
+        )}
         {children}
-      </div>
+      </IntersectionObserver>
     </section>
   )
 }

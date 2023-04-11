@@ -30,6 +30,7 @@
 }
 
 .gradientBackground {
+  transition: all .5s ease-in-out;
   position: fixed;
   height: 100%;
   z-index: 55;

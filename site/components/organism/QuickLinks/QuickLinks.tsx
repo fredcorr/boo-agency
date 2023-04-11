@@ -1,21 +1,33 @@
 import ComponentLayout from '_hoc/ComponentLayout/ComponentLayout'
 import TextBlock from '_atoms/TextBlock/TextBlock'
+import { KeylineType } from '_types/local/base'
+import { Animations } from '_utils/animations'
 import styles from './QuickLinks.module.scss'
 import { QuickLinksType } from '_types/cms'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { KeylineType } from '_types/local/base'
 
 const QuickLinks = ({ content, links, anchorName }: QuickLinksType) => {
+  const { fadeFromBottom, fadeLeftToRight } = new Animations()
+  
   return (
     <ComponentLayout
+      animation={fadeFromBottom({ when: 'beforeChildren' })}
+      viewPort={{ amount: 0.6, once: true }}
       innerClass={styles.quickLinks}
       addKeyline={KeylineType.OPEN}
       id={anchorName?.current}
     >
       {content && (
-        <div className={styles.quickLinksHeadline}>
+        <motion.div
+          className={styles.quickLinksHeadline}
+          variants={fadeLeftToRight()}
+          animate="visible"
+          initial="hidden"
+          exit="hidden"
+        >
           <TextBlock value={content} />
-        </div>
+        </motion.div>
       )}
       {links && (
         <div className={styles.quickLinksUrl}>
