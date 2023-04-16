@@ -1,7 +1,7 @@
 import LandingAnimationFile from '../../../public/landingAnimation.json'
+import { motion, useAnimation } from 'framer-motion'
 import styles from './LandingAnimation.module.scss'
 import { Animations } from '_utils/animations'
-import { motion, useAnimation } from 'framer-motion'
 import Lottie from 'lottie-react'
 
 export interface LandingAnimationProps {
@@ -15,7 +15,7 @@ const LandingAnimation = ({ onAnimationEnd }: LandingAnimationProps) => {
     controls.start({
       opacity: 0,
       transition: {
-        duration: 4,
+        duration: 0.25,
         ease: 'easeInOut',
         type: 'Tween',
       },
@@ -25,7 +25,7 @@ const LandingAnimation = ({ onAnimationEnd }: LandingAnimationProps) => {
   return (
     <motion.div
       onAnimationComplete={onAnimationEnd}
-      variants={fade({ duration: 3 })}
+      variants={fade({ duration: 0.25 })}
       animate={controls}
     >
       <Lottie
@@ -33,7 +33,7 @@ const LandingAnimation = ({ onAnimationEnd }: LandingAnimationProps) => {
         className={styles.LandingAnimation}
         onComplete={onLottieComplete}
         loop={false}
-      ></Lottie>
+      />
     </motion.div>
   )
 }

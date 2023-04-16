@@ -26,8 +26,6 @@ const Slider = ({
 
   return (
       <ComponentLayout
-        animation={fadeFromBottom({ when: 'beforeChildren' })}
-        viewPort={{ once: true, amount: 0.6 }}
         addKeyline={KeylineType.All_SIDES}
         data-has-logos={!!clientLogos}
         data-has-stats={!!slideStats}
@@ -82,10 +80,10 @@ const Slider = ({
         )}
         {slideStats && (
           <>
-            <motion.span
+            <motion.div
               variants={fadeLeftToRight({ delay: 0.5 })}
+              viewport={{ once: true, amount: 0.8 }}
               className={style.background}
-              viewport={{ once: true }}
               whileInView="visible"
               initial="hidden"
               exit="hidden"

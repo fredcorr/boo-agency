@@ -93,7 +93,6 @@ hr {
   @include font-size($text-body-2);
 }
 
-
 .componentLayout {
   flex-direction: column;
   align-items: center;
@@ -109,3 +108,6 @@ hr {
   width: 100%;
 }
 
+.swiper-wrapper {
+  transition-timing-function: linear;
+}

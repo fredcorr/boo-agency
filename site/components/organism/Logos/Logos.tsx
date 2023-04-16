@@ -13,8 +13,6 @@ const Logos = ({ clientLogos, logosCopy, anchorName }: LogosType) => {
 
   return (
     <ComponentLayout
-      animation={fadeFromBottom({ when: 'beforeChildren' })}
-      viewPort={{ once: true, amount: 0.6 }}
       addKeyline={KeylineType.SIDES}
       containerClass={style.logos}
       innerClass={style.logoInner}
@@ -22,7 +20,7 @@ const Logos = ({ clientLogos, logosCopy, anchorName }: LogosType) => {
     >
       {logosCopy && (
         <motion.div
-          variants={fadeLeftToRight({ delay: 0.5 })}
+          variants={fadeLeftToRight()}
           className={style.logosCopy}
           viewport={{ once: true }}
           whileInView="visible"
@@ -33,7 +31,14 @@ const Logos = ({ clientLogos, logosCopy, anchorName }: LogosType) => {
         </motion.div>
       )}
       {clientLogos && (
-        <motion.div className={style.clientLogos}>
+        <motion.div
+          viewport={{ once: true, amount: 0.8 }}
+          className={style.clientLogos}
+          variants={fadeFromBottom()}
+          whileInView="visible"
+          initial="hidden"
+          exit="hidden"
+        >
           <SwiperCarousel logos={clientLogos} />
         </motion.div>
       )}

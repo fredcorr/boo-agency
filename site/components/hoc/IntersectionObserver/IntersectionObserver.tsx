@@ -14,7 +14,7 @@ export interface IntersectionObserverProps extends React.HTMLAttributes<HTMLDivE
   onViewportLeaveCallback?: (inter: IntersectionObserverEntry | null) => void
   viewPort?: ViewportOptions
   children?: ReactNode
-  animation: {
+  animation?: {
     hidden: any
     visible: any
   }

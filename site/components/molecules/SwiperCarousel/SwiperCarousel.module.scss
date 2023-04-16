@@ -1,5 +1,8 @@
 @import "../../../styles/includes/";
 
+.SwiperCarousel {
+  transition-timing-function: linear;
+}
 
 .singleLogo {
   border: solid $white;

@@ -13,9 +13,15 @@ export interface SwiperCarousel {
 const SwiperCarousel = ({ logos }: SwiperCarousel) => {
   return (
     <Swiper
+      className={style.SwiperCarousel}
       modules={[Autoplay]}
       slidesPerView={5}
       spaceBetween={0}
+      speed={10000}
+      autoplay={{
+        delay: 0,
+        disableOnInteraction: false,
+      }}
       breakpoints={{
         [Breakpoints.SM]: {
           slidesPerView: 1.5,
@@ -24,7 +30,6 @@ const SwiperCarousel = ({ logos }: SwiperCarousel) => {
           slidesPerView: 3.5,
         },
       }}
-      autoplay
     >
       {logos.map((logo, key) => {
         return (

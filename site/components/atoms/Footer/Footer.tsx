@@ -27,7 +27,7 @@ const Footer = ({ footerTheme, footerCopy, includeNavigation }: FooterType) => {
           </nav>
         </>
       )}
-      <p className={styles.footerCopy}>{footerCopy}</p>
+      {!!footerCopy && <p className={styles.footerCopy}>{footerCopy}</p>}
     </footer>
   )
 }

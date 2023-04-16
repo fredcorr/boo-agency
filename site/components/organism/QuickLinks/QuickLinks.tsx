@@ -8,21 +8,20 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 const QuickLinks = ({ content, links, anchorName }: QuickLinksType) => {
-  const { fadeFromBottom, fadeLeftToRight } = new Animations()
+  const { fadeLeftToRight } = new Animations()
   
   return (
     <ComponentLayout
-      animation={fadeFromBottom({ when: 'beforeChildren' })}
-      viewPort={{ amount: 0.6, once: true }}
       innerClass={styles.quickLinks}
       addKeyline={KeylineType.OPEN}
       id={anchorName?.current}
     >
       {content && (
         <motion.div
+          viewport={{ once: true, amount: 0.8 }}
           className={styles.quickLinksHeadline}
           variants={fadeLeftToRight()}
-          animate="visible"
+          whileInView="visible"
           initial="hidden"
           exit="hidden"
         >
