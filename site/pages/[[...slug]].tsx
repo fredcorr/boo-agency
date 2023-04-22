@@ -1,11 +1,21 @@
 import { GetStaticPathsContext, GetStaticPropsContext } from 'next'
 import RenderContainer from '_hoc/RenderContainer/RenderContainer'
-import { allPages, page, navPages } from 'sanity/queries'
-import { getClient } from 'sanity/client'
+import { PreviewSuspense } from 'next-sanity/preview'
+import { allPages, getQuery } from '_sanity/queries'
+import { getClient } from '_sanity/client'
 import { CMSPage } from '_types/cms'
+import { lazy } from 'react'
 
-const Page = (props: CMSPage) => {
-  return <RenderContainer {...props} />
+const RenderPreview = lazy(() => import('_hoc/RenderPreview/RenderPreview'))
+
+const Page = ({ preview, ...props }: CMSPage) => {
+  return !!preview && !!props.pageSlug ? (
+    <PreviewSuspense fallback="Loading...">
+      <RenderPreview query={getQuery(props.pageSlug)} />
+    </PreviewSuspense>
+  ) : (
+    <RenderContainer {...props} preview />
+  )
 }
 export default Page
 
@@ -33,29 +43,21 @@ export async function getStaticPaths({
 }
 
 export async function getStaticProps({
-  locale = 'en',
-  params,
   preview,
+  params,
 }: GetStaticPropsContext) {
   const slug = (params?.slug as string[]) || ['/']
-  const props = await getClient(preview).fetch(page(slug))
-  const paths = await getClient(false)
-    .fetch(allPages)
-    .then((res) =>
-      res.map((path: CMSPage) => {
-        return {
-          params: {
-            slug: path.slug.current.split('/'),
-            id: path._id,
-          },
-        }
-      })
-    )
+
+  if (!!preview) {
+    return { props: { preview, pageSlug: slug } }
+  }
+
+  const props = await getClient(preview).fetch(getQuery(slug))
 
   return {
     props: {
       ...props,
     },
-    revalidate: 10
+    revalidate: 10,
   }
 }

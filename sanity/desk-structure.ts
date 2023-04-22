@@ -10,8 +10,8 @@ export const DeskStructure = (S: StructureBuilder) =>
         .icon(MdHome)
         .child(
           S.document()
-            .schemaType('Settings')
-            .documentId('Settings')
+            .schemaType('settings')
+            .documentId('settings')
         ),
-      ...S.documentTypeListItems().filter(listItem => !['Settings'].includes(listItem.getId()))
+      ...S.documentTypeListItems().filter(listItem => !['settings'].includes(listItem.getId() as string))
     ])

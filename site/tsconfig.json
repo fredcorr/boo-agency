@@ -92,6 +92,12 @@
       ],
       "_hooks/*": [
         "hooks/*"
+      ],
+      "_sanity": [
+        "sanity/"
+      ],
+      "_sanity/*": [
+        "sanity/*"
       ]
     },
     "incremental": true

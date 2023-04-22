@@ -1,5 +1,6 @@
 import { Components } from "./components"
 import { Image } from "./base-schemas"
+import { AppProps } from "next/app"
 
 export interface CMSSettings {
   navigation?: NavItem[]
@@ -28,6 +29,8 @@ export interface CMSPage {
   _type: string
   _id: string
   slug: SlugType;
+  pageSlug?: string[],
+  preview?: boolean
 }
 
 export enum CMSPageTheme {

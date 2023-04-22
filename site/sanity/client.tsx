@@ -1,8 +1,8 @@
 import { createClient } from 'next-sanity'
 
-const sanityConfig = {
-  dataset: process.env.SANITY_DATASET || 'production',
-  projectId: process.env.SANITY_PROJECT_ID as string,
+export const sanityConfig = {
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT as string,
   useCdn: process.env.NODE_ENV === 'production',
   apiVersion: 'v1',
 }
@@ -12,7 +12,7 @@ export const sanityClient = createClient(sanityConfig)
 export const previewClient = createClient({
   ...sanityConfig,
   useCdn: false,
-  token: process.env.SANITY_API_TOKEN,
+  token: process.env.NEXT_PUBLIC_SANITY_API_TOKEN,
 })
 
 export const getClient = (preview?: boolean) =>

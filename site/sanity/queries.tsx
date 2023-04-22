@@ -56,7 +56,7 @@ export const Logos = `
   },
 `
 
-export const page = (slug: string[]) => `*[slug.current == '${slug.join(
+export const getQuery = (slug: string[]) => `*[slug.current == '${slug.join(
   '/'
 )}'] | order(_updatedAt asc)[0] {
   "settings": ${navPages},

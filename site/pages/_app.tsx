@@ -1,5 +1,4 @@
 import LandingAnimation from '_atoms/LandingAnimation/LandingAnimation'
-import { SettingsProvider } from 'contexts/settings'
 import type { AppProps } from 'next/app'
 import { CMSPage } from '_types/cms'
 import Script from 'next/script'
@@ -12,8 +11,9 @@ export interface App extends AppProps {
 
 export default function App({ Component, pageProps }: App) {
   const [firstLoad, setFirstLoad] = useState<boolean>(true)
+  
   return (
-    <SettingsProvider items={pageProps.settings}>
+    <>
       <Script id="animate.min">
         <link
           rel="stylesheet"
@@ -25,6 +25,6 @@ export default function App({ Component, pageProps }: App) {
       ) : (
         <Component {...pageProps} />
       )}
-    </SettingsProvider>
+    </>
   )
 }
